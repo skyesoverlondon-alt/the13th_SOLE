@@ -433,36 +433,68 @@
   </div>
 
   <script>
-    const CORRECT_KEY = "444666";
+    // ========================================
+    // 🔧 CONFIGURATION - EDIT HERE
+    // ========================================
+    
+    // Where to redirect after successful key entry
+    const REDIRECT_URL = "/pages/SOLEHomepage.html";
+    
+    // Valid key hashes (SHA-256)
+    // To add a new key: hash it at https://emn178.github.io/online-tools/sha256.html
+    const VALID_KEY_HASHES = new Set([
+      "8bd87cd6eb4782408ae0de4f91a044f5be2c73e3fc5f74753fba0fd9972018fe",
+      "3ae115d7f463145b75728cb19b5d70bbdad11fb1f172ef6bfdd0a972a0352131",
+      "ffd6ca845cf32dce623452fc25da82910a95ab4a8bb81c5c95be64e4517f9f83",
+      "1aceae38cebce45eb86cbd814163eb24aef14ef830c9abf195e49d059d6e107c",
+      "8f6f061f7fb22014e40f54be7e1997bb6e5e1954831e0ebfa3d6d064d5f2276b",
+      "f0d46da03b58e9b59d414676ae8b04380f129f2e338ec25d4ea6acc0f342489a"
+    ]);
+    
+    // ========================================
+    // END CONFIGURATION
+    // ========================================
 
-    // If already unlocked in this tab session, go straight to homepage
-    if (sessionStorage.getItem("key") === "unlocked") {
-      window.location.href = "/pages/SOLEHomepage.html";
+    // If already unlocked in this tab session, go straight to destination
+    if (sessionStorage.getItem("SOLE_UNLOCKED") === "1") {
+      window.location.href = REDIRECT_URL;
     }
 
     const form = document.getElementById("gateForm");
     const input = document.getElementById("soleKey");
     const welcomeBox = document.getElementById("welcomeBox");
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const raw = (input.value || "").trim();
       if (!raw) return;
 
-      if (raw !== CORRECT_KEY) {
+      // Hash the user input and compare to allowed hashes
+      const hash = await sha256Hex(raw);
+
+      if (!VALID_KEY_HASHES.has(hash)) {
         // ❌ Wrong key: do NOTHING (silent failure)
         return;
       }
 
       // ✅ Right key:
-      sessionStorage.setItem("key", "unlocked");
+      sessionStorage.setItem("SOLE_UNLOCKED", "1");
       welcomeBox.style.display = "block";
 
       setTimeout(() => {
-        window.location.href = "/pages/SOLEHomepage.html";
+        window.location.href = REDIRECT_URL;
       }, 900);
     });
+
+    // Hash function
+    async function sha256Hex(text) {
+      const data = new TextEncoder().encode(text);
+      const digest = await crypto.subtle.digest("SHA-256", data);
+      return Array.from(new Uint8Array(digest))
+        .map(b => b.toString(16).padStart(2, "0"))
+        .join("");
+    }
   </script>
 
       
@@ -894,10 +926,6 @@
     </section>
   </main>
 
-  <div style="text-align: center; margin: 20px 0;">
-    <h1><span class="glowtext"> ESTIFARR'S GATE: ALL ARE NOT PERMITTED </span></h1>
-    <p class="sub"> SOLE EXECUTIVE CONTRACT HOLDERS ONLY CAN ACCESS THIS PRIVATE Intelligence Portal.</p>
-    
   </div>
 
   <script>
