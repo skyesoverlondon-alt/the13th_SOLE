@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ========= EDIT THESE ========= -->
+  <title>PAGE_TITLE | SOLEnterprises</title>
+  <meta name="description" content="PAGE_DESCRIPTION" />
+  <!-- ============================== -->
+
+  <meta property="og:title" content="PAGE_TITLE | SOLEnterprises" />
+  <meta property="og:description" content="PAGE_DESCRIPTION" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+
+<body>
+
+  <!-- HEADER (menu loads here) -->
+  <div id="site-header"></div>
+
+  <!-- =====================================================
+       DROP ZONE (REAL HTML CONTAINER)
+       Paste ANY valid HTML INSIDE <main> below.
+       Do NOT paste <html>, <head>, or <body>
+       You MAY paste <style> and <script> if needed
+       ===================================================== -->
+  <main class="page" id="page-content">
+    <!-- ===== START CUSTOM PAGE CODE ===== -->
+
+<style>
+  :root{
+    --sole-ink: rgba(255,255,255,0.92);
+    --sole-dim: rgba(255,255,255,0.72);
+    --sole-faint: rgba(255,255,255,0.58);
+
+    --sole-line: rgba(255,255,255,0.14);
+
+    --sole-violet: rgba(129, 67, 214, 0.50);
+    --sole-violet-2: rgba(89, 42, 165, 0.40);
+
+    --sole-gold: rgba(215, 182, 90, 0.95);
+    --sole-gold-2: rgba(255, 214, 117, 0.88);
+
+    /* Minimal shadows so it doesn't read as a floating "separate" card */
+    --sole-shadow-soft: 0 6px 14px rgba(0,0,0,0.16);
+
+    --sole-r-md: 18px;
+
+    --sole-font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  }
+
+  /* FULL BLEED + NO OUTER PADDING = no container feel */
+  .sole-home, .sole-home *{ box-sizing: border-box; }
+  .sole-home{
+    font-family: var(--sole-font);
+    color: var(--sole-ink);
+    width: 100%;
+    margin: 0;
+    padding: 0;           /* IMPORTANT: removes the "boxed in" feel */
+    background: transparent;
+  }
+
+  .sole-wrap{
+    width: 100%;
+    margin: 0;
+    padding: 0;           /* IMPORTANT */
+    max-width: none;      /* IMPORTANT */
+  }
+
+  .sole-surface{
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;           /* IMPORTANT */
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  /* Very light “ambient haze” that blends instead of framing */
+  .sole-surface::before{
+    content:"";
+    position:absolute;
+    inset: 0;
+    pointer-events:none;
+    background:
+      radial-gradient(900px 320px at 12% 2%, rgba(215,182,90,0.08), transparent 60%),
+      radial-gradient(880px 360px at 88% 6%, rgba(129,67,214,0.10), transparent 62%),
+      radial-gradient(900px 520px at 50% 112%, rgba(129,67,214,0.07), transparent 64%);
+    opacity: 0.95;
+    filter: blur(2px);
+  }
+
+  /* Panels: LIGHTER so they feel native, not like a separate "card module" */
+  .sole-panel{
+    position: relative;
+
+    /* UPDATED per your request: lighter panel background (more baked-in) */
+    background: linear-gradient(180deg, rgba(18,16,28,0.20), rgba(10,9,14,0.26));
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--sole-r-md);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    box-shadow: var(--sole-shadow-soft);
+    overflow: hidden;
+  }
+  .sole-panel::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+      radial-gradient(520px 240px at 18% 18%, rgba(215,182,90,0.07), transparent 62%),
+      radial-gradient(540px 260px at 84% 26%, rgba(129,67,214,0.08), transparent 64%);
+    opacity: 0.95;
+  }
+
+  /* This is the TRUE “baked in” trick: internal gutters only (not outer container) */
+  .sole-gutters{
+    padding: clamp(12px, 2.2vw, 22px);
+  }
+
+  /* Top nav area (inside custom code, not a header) */
+  .sole-topbar{
+    display:flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+
+    /* internal padding only */
+    padding: clamp(12px, 2.2vw, 22px);
+
+    position: relative;
+    z-index: 2;
+
+    /* no hard box look */
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    background: linear-gradient(180deg, rgba(0,0,0,0.08), transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .sole-brand{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    min-width: 240px;
+  }
+  .sole-orb{
+    width: 42px; height: 42px; border-radius: 50%;
+    background:
+      radial-gradient(circle at 28% 30%, rgba(255,255,255,0.22), transparent 56%),
+      radial-gradient(circle at 40% 45%, rgba(215,182,90,0.52), transparent 62%),
+      radial-gradient(circle at 62% 62%, rgba(129,67,214,0.52), rgba(22,16,34,0.84));
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.10), 0 0 28px rgba(215,182,90,0.14);
+  }
+  .sole-brand h2{
+    margin: 0;
+    letter-spacing: 0.14em;
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+  .sole-brand p{
+    margin: 2px 0 0;
+    font-size: 12.5px;
+    color: var(--sole-dim);
+  }
+
+  .sole-nav{
+    display:flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .sole-chip{
+    display:inline-flex;
+    align-items:center;
+    gap: 8px;
+    padding: 9px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(0,0,0,0.10);
+    color: var(--sole-ink);
+    text-decoration: none;
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+    transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    position: relative;
+    z-index: 2;
+    white-space: nowrap;
+  }
+  .sole-chip:hover{
+    transform: translateY(-1px);
+    border-color: rgba(215,182,90,0.46);
+    background: rgba(215,182,90,0.06);
+  }
+  .sole-dot{
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(215,182,90,0.92);
+    box-shadow: 0 0 0 2px rgba(215,182,90,0.14);
+  }
+
+  .sole-ctaRow{
+    display:flex;
+    gap: 10px;
+    align-items:center;
+    justify-content: flex-end;
+    min-width: 210px;
+    flex-wrap: wrap;
+  }
+
+  .sole-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    text-decoration:none;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    font-size: 12px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.16);
+    transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    position: relative;
+    z-index: 2;
+    user-select: none;
+    background: rgba(0,0,0,0.10);
+    color: var(--sole-ink);
+  }
+  .sole-btn:hover{ transform: translateY(-1px); }
+  .sole-btn-primary{
+    color: rgba(0,0,0,0.88);
+    background: linear-gradient(90deg, rgba(255,214,117,0.92), rgba(215,182,90,0.92));
+    border-color: rgba(255,214,117,0.22);
+    box-shadow: 0 10px 18px rgba(215,182,90,0.12);
+  }
+  .sole-btn-primary:hover{
+    background: linear-gradient(90deg, rgba(255,222,140,0.96), rgba(215,182,90,0.96));
+  }
+  .sole-btn-ghost:hover{
+    border-color: rgba(215,182,90,0.40);
+    background: rgba(215,182,90,0.05);
+  }
+
+  /* HERO */
+  .sole-hero{
+    padding: 0; /* we use .sole-gutters below */
+    position: relative;
+    z-index: 2;
+  }
+  .sole-heroGrid{
+    display:grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 12px;
+  }
+
+  .sole-badge{
+    display:inline-flex;
+    align-items:center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(0,0,0,0.10);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sole-dim);
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .sole-h1{
+    margin: 0;
+    font-size: clamp(34px, 4.2vw, 60px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    font-weight: 950;
+    position: relative;
+    z-index: 2;
+  }
+  .sole-goldWord{
+    color: var(--sole-gold);
+    text-shadow: 0 0 18px rgba(215,182,90,0.14);
+  }
+  .sole-sub{
+    margin: 12px 0 0;
+    font-size: clamp(14px, 1.5vw, 16px);
+    line-height: 1.6;
+    color: var(--sole-dim);
+    max-width: 68ch;
+    position: relative;
+    z-index: 2;
+  }
+
+  .sole-heroActions{
+    margin-top: 16px;
+    display:flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .sole-miniNote{
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: var(--sole-faint);
+    line-height: 1.55;
+    position: relative;
+    z-index: 2;
+  }
+
+  .sole-sideStack{
+    display:flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sole-sideCard{
+    padding: 16px;
+    position: relative;
+    z-index: 2;
+  }
+  .sole-sideTitle{
+    margin: 0;
+    font-weight: 950;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: var(--sole-ink);
+    position: relative;
+    z-index: 2;
+  }
+  .sole-sideText{
+    margin: 10px 0 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--sole-dim);
+    position: relative;
+    z-index: 2;
+  }
+
+  .sole-kvGrid{
+    margin-top: 12px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+  }
+  .sole-kv{
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(0,0,0,0.08);
+  }
+  .sole-kv b{
+    display:block;
+    font-size: 12px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--sole-faint);
+  }
+  .sole-kv span{
+    display:block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--sole-ink);
+    font-weight: 900;
+  }
+
+  .sole-section{
+    margin-top: 12px;
+    padding: 0; /* use gutters */
+    position: relative;
+    z-index: 2;
+  }
+  .sole-sectionHead{
+    display:flex;
+    align-items:flex-end;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .sole-sectionHead h3{
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    font-weight: 980;
+  }
+  .sole-sectionHead p{
+    margin: 0;
+    color: var(--sole-dim);
+    max-width: 74ch;
+    line-height: 1.55;
+    font-size: 13.5px;
+  }
+  .sole-divider{
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
+    margin: 12px 0;
+  }
+
+  .sole-realms{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 12px;
+  }
+  .sole-realm{
+    grid-column: span 6;
+    padding: 16px;
+    position: relative;
+    z-index: 2;
+  }
+  .sole-realmTop{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+  }
+  .sole-tag{
+    display:inline-flex;
+    align-items:center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(0,0,0,0.08);
+    font-size: 12px;
+    color: var(--sole-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .sole-realm h4{
+    margin: 6px 0 0;
+    font-size: 18px;
+    font-weight: 980;
+    letter-spacing: 0.01em;
+    position: relative;
+    z-index: 2;
+  }
+  .sole-realm p{
+    margin: 10px 0 0;
+    color: var(--sole-dim);
+    line-height: 1.6;
+    font-size: 13.5px;
+    position: relative;
+    z-index: 2;
+  }
+  .sole-list{
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+    display:grid;
+    gap: 8px;
+    position: relative;
+    z-index: 2;
+  }
+  .sole-list li{
+    display:flex;
+    gap: 10px;
+    align-items:flex-start;
+    color: var(--sole-dim);
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+  .sole-bullet{
+    width: 10px; height: 10px; border-radius: 50%;
+    margin-top: 5px;
+    background: rgba(215,182,90,0.92);
+    box-shadow: 0 0 0 2px rgba(215,182,90,0.12);
+    flex: 0 0 auto;
+  }
+
+  .sole-realmActions{
+    margin-top: 12px;
+    display:flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+  }
+  .sole-link{
+    display:inline-flex;
+    align-items:center;
+    gap: 10px;
+    padding: 11px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(0,0,0,0.08);
+    text-decoration:none;
+    color: var(--sole-ink);
+    font-weight: 950;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 12px;
+    transition: transform .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .sole-link:hover{
+    transform: translateY(-1px);
+    border-color: rgba(215,182,90,0.44);
+    background: rgba(215,182,90,0.05);
+  }
+  .sole-arrow{
+    width: 26px; height: 26px; border-radius: 9px;
+    display:inline-flex; align-items:center; justify-content:center;
+    background: rgba(215,182,90,0.12);
+    border: 1px solid rgba(215,182,90,0.20);
+    color: var(--sole-gold);
+    font-size: 14px;
+  }
+
+  .sole-ownerGrid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .sole-final{
+    text-align: center;
+    padding: 18px;
+  }
+  .sole-final h3{
+    margin: 0;
+    font-size: 22px;
+    font-weight: 990;
+    letter-spacing: -0.01em;
+    position: relative;
+    z-index: 2;
+  }
+  .sole-final p{
+    margin: 10px auto 0;
+    max-width: 80ch;
+    color: var(--sole-dim);
+    line-height: 1.6;
+    font-size: 13.5px;
+    position: relative;
+    z-index: 2;
+  }
+  .sole-finalActions{
+    margin-top: 14px;
+    display:flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+  }
+  .sole-disclaimer{
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--sole-faint);
+    line-height: 1.5;
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (max-width: 980px){
+    .sole-heroGrid{ grid-template-columns: 1fr; }
+    .sole-ownerGrid{ grid-template-columns: 1fr; }
+    .sole-realm{ grid-column: span 12; }
+    .sole-brand{ min-width: auto; }
+    .sole-ctaRow{ min-width: auto; justify-content: flex-start; }
+    .sole-topbar{ flex-direction: column; align-items: stretch; }
+    .sole-nav{ justify-content: flex-start; }
+  }
+
+  @supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+    .sole-panel{ background: rgba(14, 12, 20, 0.70); }
+    .sole-topbar{ background: rgba(0,0,0,0.18); }
+  }
+</style>
+
+<section class="sole-home" aria-label="SOLEnterprises Homepage">
+  <div class="sole-wrap">
+    <div class="sole-surface">
+
+      <!-- HERO -->
+      <div class="sole-hero">
+        <div class="sole-gutters">
+          <div class="sole-heroGrid">
+            <div class="sole-panel sole-sideCard">
+              <div class="sole-badge">🪐 MULTI-INDUSTRY EXECUTION • ONE NAME • FOUR REALMS • ZERO GAMES</div>
+
+              <h1 class="sole-h1">
+                A company engineered like a <span class="sole-goldWord">universe</span>.<br/>
+                Built to move cargo, protect life, train minds, and publish worlds.
+              </h1>
+
+              <p class="sole-sub">
+                🌠 SOLEnterprises is a multi-pillar holding ecosystem built for real pressure:
+                regulated logistics, sanctuary-grade care models, executive-level intelligence training, governed AI products,
+                and Afrofuturist storyworld infrastructure — all operating under one disciplined banner.
+              </p>
+
+              <div class="sole-heroActions">
+                <a class="sole-btn sole-btn-primary" href="{{ECOSYSTEM}}">🚀 Explore the Ecosystem <span class="sole-arrow">➜</span></a>
+                <a class="sole-btn sole-btn-ghost" href="{{SERVICES}}">🧾 Services & Offers</a>
+                <a class="sole-btn sole-btn-ghost" href="{{PARTNER}}">🤝 Partner / Inquire</a>
+                <a class="sole-btn sole-btn-ghost" href="{{STORE}}">🛒 Store</a>
+              </div>
+
+              <div class="sole-miniNote">
+                ✨ This homepage is a portal — not a brochure. Pick a realm, choose a pillar, and step into the build.
+                🔒 High-trust execution. 🧠 Intelligence systems. 🐾 Sanctuary principles. 🌌 Myth that ships.
+              </div>
+            </div>
+
+            <div class="sole-sideStack">
+              <div class="sole-panel sole-sideCard">
+                <p class="sole-sideTitle">🛡️ Operating Doctrine</p>
+                <p class="sole-sideText">
+                  This ecosystem is designed for high-stakes environments: time-critical transport, private compliance, premium care,
+                  elite education, and governed AI infrastructure — with narrative IP as an execution engine, not decoration.
+                </p>
+
+                <div class="sole-kvGrid">
+                  <div class="sole-kv"><b>🏛️ Structure</b><span>Holding company • multi-pillar</span></div>
+                  <div class="sole-kv"><b>🕯️ Ethos</b><span>Sanctuary principle</span></div>
+                  <div class="sole-kv"><b>⚙️ Build Style</b><span>Enterprise-grade • brand-locked</span></div>
+                  <div class="sole-kv"><b>🔥 Outcome</b><span>Systems that ship</span></div>
+                </div>
+              </div>
+
+              <div class="sole-panel sole-sideCard">
+                <p class="sole-sideTitle">🧭 Start Here</p>
+                <p class="sole-sideText">
+                  🎯 Pick a realm. Each realm contains multiple pillars — real operations, real offers, and real products.
+                  You can engage as a client, partner, investor, reader, student, or operator.
+                </p>
+                <div class="sole-divider"></div>
+                <a class="sole-link" href="{{OWNER}}">👑 Read about the Owner <span class="sole-arrow">➜</span></a>
+                <div class="sole-miniNote">
+                  ⚠️ Silent ownership is policy. The public face is the architect: <b>Gray London Skyes</b>.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REALMS -->
+      <div class="sole-section">
+        <div class="sole-gutters">
+          <div class="sole-sectionHead">
+            <div>
+              <h3>🧿 The Four Realms of SOLEnterprises</h3>
+              <p>
+                🌌 Nothing here is a side project. Each realm is equal-weight: physical operations, sanctuaries, intelligence + AI systems, and storyworld infrastructure —
+                all engineered to scale without losing control.
+              </p>
+            </div>
+            <a class="sole-link" href="{{REALMS_HUB}}">🗺️ Open the Realms Hub <span class="sole-arrow">➜</span></a>
+          </div>
+
+          <div class="sole-realms">
+            <div class="sole-panel sole-realm">
+              <div class="sole-realmTop">
+                <span class="sole-tag">🌍 Realm I • Earthside Services</span>
+                <span class="sole-tag">🚚 Movement • ⚖️ Compliance • 🧾 Contracts</span>
+              </div>
+              <h4>⚙️ Earthside Services — Logistics & Elite Sanitation</h4>
+              <p>
+                🔥 Real streets. Real schedules. Real pressure. Medical courier fleets, high-trust routes, chain-of-custody discipline, and discreet private sanitation.
+                Built to win contracts and hold reputation under load.
+              </p>
+              <ul class="sole-list">
+                <li><span class="sole-bullet"></span> 🚑 Medical Courier Fleet: pharmacy, PACE, lab specimens, critical documents — handled like it matters.</li>
+                <li><span class="sole-bullet"></span> 🧾 Proof-of-delivery discipline, route design, dispatch support, SOP-first execution.</li>
+                <li><span class="sole-bullet"></span> 🗑️ Obsidian Cartage: private garbage & resource recovery for clinics, towers, estates.</li>
+                <li><span class="sole-bullet"></span> ⚖️ Registered Agent & Compliance Network: national RA coverage + partner network.</li>
+                <li><span class="sole-bullet"></span> 🚐 Sentinel Logistics (new): business fleet access for contractors + gov subcontractors.</li>
+              </ul>
+              <div class="sole-realmActions">
+                <a class="sole-link" href="{{REALM_1}}">🚚 ENTER {{REALM_1}} <span class="sole-arrow">➜</span></a>
+                <a class="sole-link" href="{{REGISTERED_AGENT}}">⚖️ OPEN {{REGISTERED_AGENT}} <span class="sole-arrow">➜</span></a>
+                <a class="sole-link" href="{{SENTINEL_LOGISTICS}}">🚐 OPEN {{SENTINEL_LOGISTICS}} <span class="sole-arrow">➜</span></a>
+              </div>
+            </div>
+
+            <div class="sole-panel sole-realm">
+              <div class="sole-realmTop">
+                <span class="sole-tag">🐾 Realm II • Sanctuaries</span>
+                <span class="sole-tag">🧘 Recovery • 🐶 Care • 🕯️ Stability</span>
+              </div>
+              <h4>🌙 Sanctuary Systems — Animals + Humans</h4>
+              <p>
+                🕊️ Trauma-informed care, sanctuary-grade environments, and a hybrid model that keeps vulnerable families and pets together —
+                funded through premium services + nonprofit safety net.
+              </p>
+              <ul class="sole-list">
+                <li><span class="sole-bullet"></span> 🐾 Noble SOLE Animal Sanctuary & Care: hybrid sanctuary model across CO, TX, AZ, NM.</li>
+                <li><span class="sole-bullet"></span> 🚐 DOT-grade transport safety + B2B clinic/shelter transport revenue.</li>
+                <li><span class="sole-bullet"></span> 🧠 Behavioral pathways, rehab milestones, service/therapy pipeline.</li>
+                <li><span class="sole-bullet"></span> 🧾 SkyeCares: Coverage Vault organization + claims/EOB tracking (educational + concierge).</li>
+                <li><span class="sole-bullet"></span> 🐕 Emergency boarding / subsidized care: the safety net layer.</li>
+              </ul>
+              <div class="sole-realmActions">
+                <a class="sole-link" href="{{REALM_2}}">🐾 ENTER {{REALM_2}} <span class="sole-arrow">➜</span></a>
+                <a class="sole-link" href="{{NOBLE_SOLE}}">🏛️ OPEN {{NOBLE_SOLE}} <span class="sole-arrow">➜</span></a>
+                <a class="sole-link" href="{{SKYECARES}}">🧾 OPEN {{SKYECARES}} <span class="sole-arrow">➜</span></a>
+              </div>
+            </div>
+
+            <div class="sole-panel sole-realm">
+              <div class="sole-realmTop">
+                <span class="sole-tag">🧠 Realm III • Intelligence & AI</span>
+                <span class="sole-tag">🎓 SOLARA • 🤖 AI Division • 🛡️ KillerAI</span>
+              </div>
+              <h4>🧬 Elite Minds + Governed Machines</h4>
+              <p>
+                ⚡ SOLARA trains applied human intelligence. The AI Division builds products that ship:
+                protocol-locked consoles, invisible AI teams, and executive clone-style frameworks.
+              </p>
+              <ul class="sole-list">
+                <li><span class="sole-bullet"></span> 🎓 SOLARA: tiered certificates, ethics-locked, outcome-first training.</li>
+                <li><span class="sole-bullet"></span> 🛡️ KAIXU PRIME / KillerAI Suite: BYO OpenAI key, local memory, serious outputs.</li>
+                <li><span class="sole-bullet"></span> 🤖 Artificial Sole + SolenteAI: governed clones + invisible AI workforce tools.</li>
+                <li><span class="sole-bullet"></span> 🧿 “Council of Selves” style systems: perspective engines for decision and creation.</li>
+                <li><span class="sole-bullet"></span> ⚙️ Enterprise-ready documentation, specs, and workflows.</li>
+              </ul>
+              <div class="sole-realmActions">
+                <a class="sole-link" href="{{REALM_3}}">🧠 ENTER {{REALM_3}} <span class="sole-arrow">➜</span></a>
+                <a class="sole-link" href="{{SOLARA}}">🎓 OPEN {{SOLARA}} <span class="sole-arrow">➜</span></a>
+                <a class="sole-link" href="{{KILLERAI}}">🛡️ OPEN {{KILLERAI}} <span class="sole-arrow">➜</span></a>
+              </div>
+            </div>
+
+            <div class="sole-panel sole-realm">
+              <div class="sole-realmTop">
+                <span class="sole-tag">📚 Realm IV • Storyworlds</span>
+                <span class="sole-tag">🌌 Afrofuturism • 🎴 TCG • 🗺️ Portals</span>
+              </div>
+              <h4>🜁 Myth That Ships — Storyworld Infrastructure</h4>
+              <p>
+                📡 Books as portals. Canon as a system. Interactive editions and tactical worlds that expand into products, culture, and community.
+              </p>
+              <ul class="sole-list">
+                <li><span class="sole-bullet"></span> 🌞 Shattered Sun Storyworks: interconnected books + web artifacts.</li>
+                <li><span class="sole-bullet"></span> 🧿 Shattered Temple trilogy experiences: immersive interactive reading.</li>
+                <li><span class="sole-bullet"></span> 🎴 Essence Crown: Shard Wars — expansion-ready TCG.</li>
+                <li><span class="sole-bullet"></span> 🗺️ Canon tools, maps, and portal pages built into the website.</li>
+                <li><span class="sole-bullet"></span> ⚔️ Worldbuilding as infrastructure, not decoration.</li>
+              </ul>
+              <div class="sole-realmActions">
+                <a class="sole-link" href="{{REALM_4}}">📚 ENTER {{REALM_4}} <span class="sole-arrow">➜</span></a>
+                <a class="sole-link" href="{{SHATTERED_SUN}}">🌞 OPEN {{SHATTERED_SUN}} <span class="sole-arrow">➜</span></a>
+                <a class="sole-link" href="{{ESSENCE_CROWN}}">🎴 OPEN {{ESSENCE_CROWN}} <span class="sole-arrow">➜</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OWNER -->
+      <div class="sole-section">
+        <div class="sole-gutters">
+          <div class="sole-sectionHead">
+            <div>
+              <h3>👑 Owner • Gray London Skyes</h3>
+              <p>
+                🌌 Founder, executive operator, and systems architect. Public leadership is intentional. Silent ownership remains silent.
+              </p>
+            </div>
+            <a class="sole-link" href="{{OWNER}}">👑 OPEN {{OWNER}} <span class="sole-arrow">➜</span></a>
+          </div>
+
+          <div class="sole-ownerGrid">
+            <div class="sole-panel sole-sideCard">
+              <p class="sole-sideTitle">🧭 Executive Operator Profile</p>
+              <p class="sole-sideText">
+                ⚙️ Gray London Skyes runs multi-industry execution across regulated logistics, sanctuary systems, intelligence training, and governed AI infrastructure —
+                built to scale without losing brand control.
+              </p>
+              <div class="sole-divider"></div>
+              <a class="sole-link" href="{{OWNER}}">👑 Read Full Owner Profile <span class="sole-arrow">➜</span></a>
+            </div>
+
+            <div class="sole-panel sole-sideCard">
+              <p class="sole-sideTitle">📡 Fast Routing</p>
+              <p class="sole-sideText">
+                If you’re not sure what realm you’re in, don’t guess — route it. We’ll triage you to the right page and the right offer.
+              </p>
+              <div class="sole-divider"></div>
+              <a class="sole-link" href="{{CONTACT}}">📡 OPEN {{CONTACT}} <span class="sole-arrow">➜</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FINAL CTA -->
+      <div class="sole-section">
+        <div class="sole-gutters">
+          <div class="sole-panel sole-final">
+            <h3>🌌 Your universe has doors. Pick one — and enter.</h3>
+            <p>
+              🛡️ High-trust execution. 🧠 Elite intelligence. 🐾 Sanctuary-grade care. 📚 Storyworld infrastructure.
+              One empire. Four realms. Infinite routes.
+            </p>
+            <div class="sole-finalActions">
+              <a class="sole-btn sole-btn-primary" href="{{ECOSYSTEM}}">🚀 Explore the Ecosystem <span class="sole-arrow">➜</span></a>
+              <a class="sole-btn sole-btn-ghost" href="{{REALMS_HUB}}">🗺️ Realms Hub</a>
+              <a class="sole-btn sole-btn-ghost" href="{{OWNER}}">👑 Owner</a>
+              <a class="sole-btn sole-btn-ghost" href="{{CONTACT}}">📡 Contact</a>
+            </div>
+            <div class="sole-disclaimer">
+              🧿 Replace placeholders like <b>{{REALM_1}}</b> with your real page links when ready.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+      
+    <!-- ===== END CUSTOM PAGE CODE ===== -->
+  </main>
+
+  <!-- FOOTER -->
+  <div id="site-footer"></div>
+
+  <!-- DO NOT TOUCH -->
+  <script src="/assets/js/layout.js"></script>
+  <script type="module" src="/assets/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ========= EDIT THESE ========= -->
+  <title>PAGE_TITLE | SOLEnterprises</title>
+  <meta name="description" content="PAGE_DESCRIPTION" />
+  <!-- ============================== -->
+
+  <meta property="og:title" content="PAGE_TITLE | SOLEnterprises" />
+  <meta property="og:description" content="PAGE_DESCRIPTION" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script src="/branding.js"></script>
+</head>
+
+<body>
+
+  <!-- HEADER (menu loads here) -->
+  <div id="site-header"></div>
+
+  <!-- =====================================================
+       DROP ZONE (REAL HTML CONTAINER)
+       Paste ANY valid HTML INSIDE <main> below.
+       Do NOT paste <html>, <head>, or <body>
+       You MAY paste <style> and <script> if needed
+       ===================================================== -->
+  <main class="page" id="page-content">
+    <!-- ===== START CUSTOM PAGE CODE ===== -->
+
+  <style>
+    :root{
+      --bg0:#05010f;
+      --bg1:#09001f;
+      --ink:#eef2ff;
+      --muted:#a8b2d8;
+
+      --vio:#7c3aed;
+      --mag:#ff3df0;
+      --cyan:#2ef6ff;
+      --gold:#ffcc55;
+
+      --stroke: rgba(255,255,255,.14);
+      --glass: rgba(255,255,255,.08);
+      --glass2: rgba(255,255,255,.12);
+      --shadow: 0 30px 90px rgba(0,0,0,.60);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(124,58,237,.22), transparent 55%),
+        radial-gradient(900px 700px at 85% 25%, rgba(255,61,240,.16), transparent 55%),
+        radial-gradient(900px 800px at 60% 90%, rgba(46,246,255,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow:auto;
+    }
+
+    .wrap{
+      position:relative;
+      min-height:100%;
+      display:grid;
+      place-items:center;
+      padding:24px;
+    }
+
+    .panel{
+      width:min(980px, 100%);
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border-radius:30px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .panel::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 300px at 10% 10%, rgba(255,61,240,.18), transparent 60%),
+        radial-gradient(700px 300px at 90% 20%, rgba(46,246,255,.14), transparent 60%),
+        radial-gradient(800px 420px at 50% 110%, rgba(124,58,237,.18), transparent 60%);
+      pointer-events:none;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr;}
+    }
+
+    .left{
+      padding:36px 36px 30px;
+      position:relative;
+    }
+    .right{
+      padding:36px 36px 30px;
+      border-left:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.04));
+    }
+    @media (max-width: 860px){
+      .right{border-left:none;border-top:1px solid rgba(255,255,255,.10);}
+    }
+
+    .sigil{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-weight:800;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, #fff, rgba(255,255,255,0) 60%),
+                  linear-gradient(135deg, var(--mag), var(--vio), var(--cyan));
+      box-shadow: 0 0 16px rgba(255,61,240,.35), 0 0 18px rgba(46,246,255,.18);
+    }
+
+    h1{
+      margin:16px 0 10px;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height:1.05;
+      letter-spacing:-.02em;
+    }
+    .glowtext{
+      background: linear-gradient(90deg, var(--mag), var(--vio), var(--cyan), var(--gold));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      filter: drop-shadow(0 0 14px rgba(255,61,240,.10));
+    }
+
+    .lead{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.55;
+      max-width:60ch;
+    }
+
+    .chips{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin:18px 0 0;
+    }
+    .chip{
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color:rgba(240,244,255,.86);
+      font-size:12px;
+      letter-spacing:.02em;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .chip b{color:#fff}
+    .emoji{filter: drop-shadow(0 0 10px rgba(255,204,85,.14));}
+
+    .card{
+      margin-top:22px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.26);
+      border-radius:22px;
+      padding:18px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    label{
+      display:block;
+      font-size:12px;
+      color:rgba(240,244,255,.82);
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .row{
+      display:flex;
+      gap:10px;
+      align-items:stretch;
+    }
+    @media (max-width: 520px){
+      .row{flex-direction:column;}
+    }
+
+    input{
+      flex:1;
+      width:100%;
+      padding:14px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--ink);
+      outline:none;
+      font-size:16px;
+      letter-spacing:.12em;
+      text-align:center;
+    }
+    input::placeholder{color:rgba(240,244,255,.38); letter-spacing:.06em;}
+
+    button{
+      border:0;
+      cursor:pointer;
+      padding:14px 16px;
+      border-radius:14px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#0b0617;
+      background: linear-gradient(90deg, var(--gold), var(--mag), var(--cyan));
+      box-shadow: 0 18px 55px rgba(0,0,0,.38);
+      min-width:160px;
+    }
+    button:active{transform: translateY(1px);}
+
+    .welcome{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      display:none;
+    }
+    .welcome strong{
+      display:block;
+      font-size:14px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      background: linear-gradient(90deg, var(--gold), var(--cyan));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .welcome span{
+      display:block;
+      margin-top:6px;
+      color:rgba(240,244,255,.78);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .right h2{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .right p{
+      margin:0 0 14px;
+      color:rgba(240,244,255,.72);
+      line-height:1.6;
+      font-size:13px;
+    }
+    .tiny{
+      font-size:11px;
+      color:rgba(240,244,255,.55);
+      line-height:1.45;
+    }
+
+    .ghostline{
+      margin-top:16px;
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+    }
+
+    .sole-home-wrap{
+      display:flex;
+      justify-content:center;
+      margin:60px 0 30px;
+    }
+
+    .sole-home-btn{
+      position:relative;
+      padding:16px 36px;
+      font-size:16px;
+      font-weight:700;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      color:#ffffff;
+      text-decoration:none;
+      border-radius:999px;
+      background:
+        linear-gradient(135deg,
+          #ffcc55 0%,
+          #ff3df0 35%,
+          #7c3aed 65%,
+          #2ef6ff 100%
+        );
+      box-shadow:
+        0 0 18px rgba(255,61,240,0.45),
+        0 0 36px rgba(124,58,237,0.35),
+        0 0 60px rgba(46,246,255,0.25);
+      transition:all 0.35s ease;
+      overflow:hidden;
+    }
+
+    .sole-home-btn::before{
+      content:"";
+      position:absolute;
+      top:-50%;
+      left:-50%;
+      width:200%;
+      height:200%;
+      background:
+        radial-gradient(circle at center,
+          rgba(255,255,255,0.35),
+          transparent 60%
+        );
+      opacity:0;
+      transition:opacity 0.35s ease;
+    }
+
+    .sole-home-btn::after{
+      content:"";
+      position:absolute;
+      inset:-4px;
+      border-radius:999px;
+      background:linear-gradient(
+        90deg,
+        rgba(255,61,240,0.6),
+        rgba(124,58,237,0.6),
+        rgba(46,246,255,0.6),
+        rgba(255,204,85,0.6)
+      );
+      filter:blur(14px);
+      opacity:0.65;
+      z-index:-1;
+    }
+
+    .sole-home-btn:hover{
+      transform:scale(1.08);
+      box-shadow:
+        0 0 28px rgba(255,61,240,0.65),
+        0 0 60px rgba(124,58,237,0.55),
+        0 0 90px rgba(46,246,255,0.45);
+    }
+
+    .sole-home-btn:hover::before{
+      opacity:1;
+    }
+
+    .sole-home-btn:active{
+      transform:scale(1.03);
+    }
+  </style>
+
+  <main class="wrap">
+    <section class="panel" aria-label="SOLE Access Gateway">
+      <div class="grid">
+        <div class="left">
+          <div class="sigil"><span class="dot"></span> SOLE SECURE ACCESS</div>
+
+          <h1><span class="glowtext">Private Entry</span> • Verified Access Only</h1>
+          <p class="lead">
+            This gateway is reserved for priority clients and partner businesses.
+            If your access is valid, you'll be granted entry immediately.
+          </p>
+
+          <div class="chips" aria-hidden="true">
+            <div class="chip"><span class="emoji">🛡️</span> <b>Integrity</b> Locked</div>
+            <div class="chip"><span class="emoji">⚡</span> <b>Priority</b> Access</div>
+            <div class="chip"><span class="emoji">🛰️</span> <b>Systems</b> Online</div>
+            <div class="chip"><span class="emoji">💠</span> <b>Secure</b> Handshake</div>
+          </div>
+
+          <div class="card">
+            <form id="gateForm" autocomplete="off">
+              <label for="soleKey">Enter SOLE Key</label>
+              <div class="row">
+                <input id="soleKey" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="12"
+                       placeholder="••••••" aria-label="SOLE key input" />
+                <button type="submit">Enter</button>
+              </div>
+
+              <div id="welcomeBox" class="welcome" role="status" aria-live="polite">
+                <strong>Welcome to SOLE.</strong>
+                <span>Access confirmed. Redirecting…</span>
+              </div>
+
+              <div class="ghostline"></div>
+
+              <div class="tiny">
+                🔒 Invalid key = no response. Valid key = immediate access.
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <aside class="right">
+          <h2>Access Flow</h2>
+          <p>
+            Valid key → you get the welcome confirmation → homepage loads.
+          </p>
+          <p>
+            This page serves as your secure entry point to the full SOLE ecosystem.
+          </p>
+          <p class="tiny">
+            Your session is preserved across page navigation using secure browser storage.
+          </p>
+
+          <div class="sole-home-wrap">
+            <a href="pages/Services.html" class="sole-home-btn">
+              ⟵ RETURN to THE SOLE
+            </a>
+          </div>
+        </aside> 
+      </div>
+    </section>
+  </main>
+
+  <div style="text-align: center; margin: 20px 0;">
+    <h1><span class="glowtext">ESTIFARR'S GATE: ALL ARE NOT PERMITTED</span></h1>
+    <p style="color: var(--muted); font-size: 15px;">SOLE EXECUTIVE CONTRACT HOLDERS ONLY CAN ACCESS THIS PRIVATE Intelligence Portal.</p>
+  </div>
+
+  <script>
+    const CORRECT_KEY = "444666";
+
+    // If already unlocked in this tab session, go straight to homepage
+    if (sessionStorage.getItem("key") === "unlocked") {
+      window.location.href = "/pages/SOLEHomepage.html";
+    }
+
+    const form = document.getElementById("gateForm");
+    const input = document.getElementById("soleKey");
+    const welcomeBox = document.getElementById("welcomeBox");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const raw = (input.value || "").trim();
+      if (!raw) return;
+
+      if (raw !== CORRECT_KEY) {
+        // ❌ Wrong key: do NOTHING (silent failure)
+        return;
+      }
+
+      // ✅ Right key:
+      sessionStorage.setItem("key", "unlocked");
+      welcomeBox.style.display = "block";
+
+      setTimeout(() => {
+        window.location.href = "/pages/SOLEHomepage.html";
+      }, 900);
+    });
+  </script>
+
+      
+    <!-- ===== END CUSTOM PAGE CODE ===== -->
+  </main>
+
+  <!-- FOOTER -->
+  <div id="site-footer"></div>
+
+  <!-- DO NOT TOUCH -->
+  <script src="/assets/js/layout.js"></script>
+  <script type="module" src="/assets/js/app.js"></script>
+
+</body>
+</html>
+
+
+<!doctype html>
+<html lang="en">
+<head> 
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SOLE Access</title>
+  <meta name="description" content="Private SOLE access gateway." />
+
+  <style>
+    :root{
+      --bg0:#05010f;
+      --bg1:#09001f;
+      --ink:#eef2ff;
+      --muted:#a8b2d8;
+
+      --vio:#7c3aed;
+      --mag:#ff3df0;
+      --cyan:#2ef6ff;
+      --gold:#ffcc55;
+
+      --stroke: rgba(255,255,255,.14);
+      --glass: rgba(255,255,255,.08);
+      --glass2: rgba(255,255,255,.12);
+      --shadow: 0 30px 90px rgba(0,0,0,.60);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(124,58,237,.22), transparent 55%),
+        radial-gradient(900px 700px at 85% 25%, rgba(255,61,240,.16), transparent 55%),
+        radial-gradient(900px 800px at 60% 90%, rgba(46,246,255,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow:auto;
+    }
+
+    .wrap{
+      position:relative;
+      min-height:100%;
+      display:grid;
+      place-items:center;
+      padding:24px;
+    }
+
+    .panel{
+      width:min(980px, 100%);
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border-radius:30px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .panel::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 300px at 10% 10%, rgba(255,61,240,.18), transparent 60%),
+        radial-gradient(700px 300px at 90% 20%, rgba(46,246,255,.14), transparent 60%),
+        radial-gradient(800px 420px at 50% 110%, rgba(124,58,237,.18), transparent 60%);
+      pointer-events:none;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr;}
+    }
+
+    .left{
+      padding:36px 36px 30px;
+      position:relative;
+    }
+    .right{
+      padding:36px 36px 30px;
+      border-left:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.04));
+    }
+    @media (max-width: 860px){
+      .right{border-left:none;border-top:1px solid rgba(255,255,255,.10);}
+    }
+
+    .sigil{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-weight:800;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, #fff, rgba(255,255,255,0) 60%),
+                  linear-gradient(135deg, var(--mag), var(--vio), var(--cyan));
+      box-shadow: 0 0 16px rgba(255,61,240,.35), 0 0 18px rgba(46,246,255,.18);
+    }
+
+    h1{
+      margin:16px 0 10px;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height:1.05;
+      letter-spacing:-.02em;
+    }
+    .glowtext{
+      background: linear-gradient(90deg, var(--mag), var(--vio), var(--cyan), var(--gold));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      filter: drop-shadow(0 0 14px rgba(255,61,240,.10));
+    }
+
+    .lead{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.55;
+      max-width:60ch;
+    }
+
+    .chips{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin:18px 0 0;
+    }
+    .chip{
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color:rgba(240,244,255,.86);
+      font-size:12px;
+      letter-spacing:.02em;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .chip b{color:#fff}
+    .emoji{filter: drop-shadow(0 0 10px rgba(255,204,85,.14));}
+
+    .card{
+      margin-top:22px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.26);
+      border-radius:22px;
+      padding:18px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    label{
+      display:block;
+      font-size:12px;
+      color:rgba(240,244,255,.82);
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .row{
+      display:flex;
+      gap:10px;
+      align-items:stretch;
+    }
+    @media (max-width: 520px){
+      .row{flex-direction:column;}
+    }
+
+    input{
+      flex:1;
+      width:100%;
+      padding:14px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--ink);
+      outline:none;
+      font-size:16px;
+      letter-spacing:.12em;
+      text-align:center;
+    }
+    input::placeholder{color:rgba(240,244,255,.38); letter-spacing:.06em;}
+
+    button{
+      border:0;
+      cursor:pointer;
+      padding:14px 16px;
+      border-radius:14px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#0b0617;
+      background: linear-gradient(90deg, var(--gold), var(--mag), var(--cyan));
+      box-shadow: 0 18px 55px rgba(0,0,0,.38);
+      min-width:160px;
+    }
+    button:active{transform: translateY(1px);}
+
+    .welcome{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      display:none;
+    }
+    .welcome strong{
+      display:block;
+      font-size:14px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      background: linear-gradient(90deg, var(--gold), var(--cyan));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .welcome span{
+      display:block;
+      margin-top:6px;
+      color:rgba(240,244,255,.78);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .right h2{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .right p{
+      margin:0 0 14px;
+      color:rgba(240,244,255,.72);
+      line-height:1.6;
+      font-size:13px;
+    }
+    .tiny{
+      font-size:11px;
+      color:rgba(240,244,255,.55);
+      line-height:1.45;
+    }
+
+    .ghostline{
+      margin-top:16px;
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="wrap">
+    <section class="panel" aria-label="SOLE Access Gateway">
+      <div class="grid">
+        <div class="left">
+          <div class="sigil"><span class="dot"></span> SOLE SECURE ACCESS</div>
+
+          <h1><span class="glowtext">Private Entry</span> • Verified Access Only</h1>
+          <p class="lead">
+            This gateway is reserved for priority clients and partner businesses.
+            If your access is valid, you’ll be granted entry immediately.
+          </p>
+
+          <div class="chips" aria-hidden="true">
+            <div class="chip"><span class="emoji">🛡️</span> <b>Integrity</b> Locked</div>
+            <div class="chip"><span class="emoji">⚡</span> <b>Priority</b> Access</div>
+            <div class="chip"><span class="emoji">🛰️</span> <b>Systems</b> Online</div>
+            <div class="chip"><span class="emoji">💠</span> <b>Secure</b> Handshake</div>
+          </div>
+
+          <div class="card">
+            <form id="gateForm" autocomplete="off">
+              <label for="soleKey">Enter SOLE Key</label>
+              <div class="row">
+                <input id="soleKey" inputmode="numeric" pattern="[0-9]*" maxlength="12"
+                       placeholder="••••••" aria-label="SOLE key input" />
+                <button type="submit">Enter</button>
+              </div>
+
+              <div id="welcomeBox" class="welcome" role="status" aria-live="polite">
+                <strong>Welcome to SOLE.</strong>
+                <span>Access confirmed. Redirecting…</span>
+              </div>
+
+              <div class="ghostline"></div>
+
+              <div class="tiny">
+                🔒 Invalid key = no response. Valid key = immediate access.
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <aside class="right">
+          <h2>Access Flow</h2>
+          <p>
+            Valid key → you get the welcome confirmation → page two loads.
+          </p>
+          <p>
+            Page two is intentionally minimal so you can drop your custom block right into the placeholder.
+          </p>
+          <p class="tiny">
+            If you want “remember me” across browser restarts, I can switch from sessionStorage to localStorage.
+          </p> <!-- Return to Homepage Button -->
+<div style="text-align:center; margin-top:40px;">
+ <!-- ====== ROYAL COSMIC RETURN HOME BUTTON ====== -->
+<style>
+  .sole-home-wrap{
+    display:flex;
+    justify-content:center;
+    margin:60px 0 30px;
+  }
+
+  .sole-home-btn{
+    position:relative;
+    padding:16px 36px;
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#ffffff;
+    text-decoration:none;
+    border-radius:999px;
+    background:
+      linear-gradient(135deg,
+        #ffcc55 0%,
+        #ff3df0 35%,
+        #7c3aed 65%,
+        #2ef6ff 100%
+      );
+    box-shadow:
+      0 0 18px rgba(255,61,240,0.45),
+      0 0 36px rgba(124,58,237,0.35),
+      0 0 60px rgba(46,246,255,0.25);
+    transition:all 0.35s ease;
+    overflow:hidden;
+  }
+
+  /* inner glow sweep */
+  .sole-home-btn::before{
+    content:"";
+    position:absolute;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+    background:
+      radial-gradient(circle at center,
+        rgba(255,255,255,0.35),
+        transparent 60%
+      );
+    opacity:0;
+    transition:opacity 0.35s ease;
+  }
+
+  /* halo ring */
+  .sole-home-btn::after{
+    content:"";
+    position:absolute;
+    inset:-4px;
+    border-radius:999px;
+    background:linear-gradient(
+      90deg,
+      rgba(255,61,240,0.6),
+      rgba(124,58,237,0.6),
+      rgba(46,246,255,0.6),
+      rgba(255,204,85,0.6)
+    );
+    filter:blur(14px);
+    opacity:0.65;
+    z-index:-1;
+  }
+
+  .sole-home-btn:hover{
+    transform:scale(1.08);
+    box-shadow:
+      0 0 28px rgba(255,61,240,0.65),
+      0 0 60px rgba(124,58,237,0.55),
+      0 0 90px rgba(46,246,255,0.45);
+  }
+
+  .sole-home-btn:hover::before{
+    opacity:1;
+  }
+
+  .sole-home-btn:active{
+    transform:scale(1.03);
+  }
+</style>
+
+<div class="sole-home-wrap">
+  <a href="pages/Services.html" class="sole-home-btn">
+    ⟵ RETURN to THE SOLE
+  </a>
+</div>
+<!-- ====== END BUTTON ====== -->
+</div>
+        </aside> 
+      </div>
+    </section>
+  </main>
+
+  <div style="text-align: center; margin: 20px 0;">
+    <h1><span class="glowtext"> ESTIFARR'S GATE: ALL ARE NOT PERMITTED </span></h1>
+    <p class="sub"> SOLE EXECUTIVE CONTRACT HOLDERS ONLY CAN ACCESS THIS PRIVATE Intelligence Portal.</p>
+    
+  </div>
+
+  <script>
+    /************************************************************
+     * RULES YOU SET:
+     * - Wrong key: do nothing (no message, no effects).
+     * - Right key: show "Welcome to SOLE." then redirect.
+     * - Keys are never shown anywhere in the UI.
+     *
+     * FILE PLACEMENT:
+     * - index.html is at ROOT
+     * - page 2 is /pages/GatedPage2.html (change NEXT_URL if needed)
+     ************************************************************/
+
+    // ✅ Set where page 2 lives in your project:
+    const NEXT_URL = "/pages/GatedPage2.html";
+
+    // ✅ SHA-256 hashes (hex) for your valid keys.
+    // (No plaintext keys stored here.)
+    const VALID_KEY_HASHES = new Set([
+      "8bd87cd6eb4782408ae0de4f91a044f5be2c73e3fc5f74753fba0fd9972018fe",
+      "3ae115d7f463145b75728cb19b5d70bbdad11fb1f172ef6bfdd0a972a0352131",
+      "ffd6ca845cf32dce623452fc25da82910a95ab4a8bb81c5c95be64e4517f9f83",
+      "1aceae38cebce45eb86cbd814163eb24aef14ef830c9abf195e49d059d6e107c",
+      "8f6f061f7fb22014e40f54be7e1997bb6e5e1954831e0ebfa3d6d064d5f2276b",
+      "f0d46da03b58e9b59d414676ae8b04380f129f2e338ec25d4ea6acc0f342489a"
+    ]);
+
+    const form = document.getElementById("gateForm");
+    const input = document.getElementById("soleKey");
+    const welcomeBox = document.getElementById("welcomeBox");
+
+    // If already unlocked in this tab session, go straight to page 2
+    if (sessionStorage.getItem("SOLE_UNLOCKED") === "1") {
+      window.location.href = NEXT_URL;
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const raw = (input.value || "").trim();
+      if (!raw) return;
+
+      // Hash the user input and compare to allowed hashes
+      const hash = await sha256Hex(raw);
+
+      if (!VALID_KEY_HASHES.has(hash)) {
+        // ❌ Wrong key: do NOTHING.
+        return;
+      }
+
+      // ✅ Right key:
+      sessionStorage.setItem("SOLE_UNLOCKED", "1");
+      welcomeBox.style.display = "block";
+
+      setTimeout(() => {
+        window.location.href = NEXT_URL;
+      }, 900);
+    });
+
+    async function sha256Hex(text) {
+      const data = new TextEncoder().encode(text);
+      const digest = await crypto.subtle.digest("SHA-256", data);
+      return Array.from(new Uint8Array(digest))
+        .map(b => b.toString(16).padStart(2, "0"))
+        .join("");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ========= EDIT THESE ========= -->
+  <title>Sentinel Storefront – Digital Vault | SOLEnterprises</title>
+  <meta name="description" content="Enter the Sentinel Storefront - A cinematic vault of digital treasures and premium experiences." />
+  <!-- ============================== -->
+
+  <meta property="og:title" content="Sentinel Storefront | SOLEnterprises" />
+  <meta property="og:description" content="Digital Vault" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- HEADER (menu loads here) -->
+  <div id="site-header"></div>
+
+  <main class="page" id="page-content">
+    <!-- ===== START CUSTOM PAGE CODE ===== -->
+
+  <style>
+    :root {
+      --gold: #ffd700;
+      --gold-dark: #b8860b;
+      --cyan: #00f5ff;
+      --purple: #9d4edd;
+      --pink: #ff006e;
+      --dark: #0a0612;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--dark);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      display: none !important;
+    }
+
+    /* Particle Canvas */
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    /* Cinematic Vignette */
+    .vignette {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.8);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Spotlight Effect */
+    .spotlight {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.15), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      filter: blur(40px);
+      animation: spotlightMove 20s ease-in-out infinite;
+    }
+
+    @keyframes spotlightMove {
+      0%, 100% {
+        top: 20%;
+        left: 10%;
+      }
+      25% {
+        top: 60%;
+        left: 80%;
+      }
+      50% {
+        top: 30%;
+        left: 50%;
+      }
+      75% {
+        top: 70%;
+        left: 20%;
+      }
+    }
+
+    /* Hero Section */
+    .vault-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 32px;
+      background: rgba(255, 215, 0, 0.1);
+      border: 2px solid var(--gold);
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      animation: badgeEntry 1.5s ease-out;
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+    }
+
+    .badge-glow {
+      width: 12px;
+      height: 12px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 20px var(--gold);
+      animation: badgePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes badgeEntry {
+      from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes badgePulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.4);
+        opacity: 0.6;
+      }
+    }
+
+    .vault-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 12vw, 10rem);
+      font-weight: 400;
+      line-height: 0.9;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      animation: titleReveal 2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .title-word {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), var(--cyan), var(--purple), var(--pink));
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 8s ease infinite;
+      text-shadow: 0 0 80px rgba(255, 215, 0, 0.5);
+    }
+
+    @keyframes titleReveal {
+      from {
+        opacity: 0;
+        transform: translateY(100px) scale(0.9);
+        filter: blur(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .vault-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
+      font-weight: 400;
+      color: rgba(255, 215, 0, 0.9);
+      margin-bottom: 60px;
+      letter-spacing: 0.08em;
+      animation: subtitleFade 2s ease-out 0.5s both;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+
+    @keyframes subtitleFade {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Divider Line */
+    .cinematic-divider {
+      width: 80%;
+      max-width: 800px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--cyan), var(--gold), transparent);
+      margin: 60px auto;
+      position: relative;
+      animation: dividerExpand 3s ease-out;
+    }
+
+    .cinematic-divider::before,
+    .cinematic-divider::after {
+      content: '◆';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      font-size: 20px;
+      text-shadow: 0 0 20px var(--gold);
+    }
+
+    .cinematic-divider::before {
+      left: -40px;
+    }
+
+    .cinematic-divider::after {
+      right: -40px;
+    }
+
+    @keyframes dividerExpand {
+      from {
+        width: 0;
+        opacity: 0;
+      }
+      to {
+        width: 80%;
+        opacity: 1;
+      }
+    }
+
+    /* Vault Grid */
+    .vault-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 20px 120px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .vault-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+    }
+
+    /* Vault Card */
+    .vault-card {
+      position: relative;
+      background: linear-gradient(145deg, rgba(255, 215, 0, 0.05), rgba(0, 245, 255, 0.05));
+      backdrop-filter: blur(30px);
+      border: 2px solid rgba(255, 215, 0, 0.2);
+      border-radius: 20px;
+      padding: 50px 35px;
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .vault-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+      transition: left 0.8s ease;
+    }
+
+    .vault-card:hover::before {
+      left: 100%;
+    }
+
+    .vault-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--gold), var(--cyan), var(--purple));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .vault-card:hover::after {
+      opacity: 1;
+      animation: borderFlow 3s linear infinite;
+    }
+
+    @keyframes borderFlow {
+      from {
+        filter: hue-rotate(0deg);
+      }
+      to {
+        filter: hue-rotate(360deg);
+      }
+    }
+
+    .vault-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 30px 80px rgba(255, 215, 0, 0.4);
+      background: linear-gradient(145deg, rgba(255, 215, 0, 0.1), rgba(0, 245, 255, 0.1));
+    }
+
+    /* Card Icon */
+    .card-icon {
+      width: 110px;
+      height: 110px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      margin-bottom: 30px;
+      position: relative;
+      box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+      animation: iconFloat 3s ease-in-out infinite;
+    }
+
+    .card-icon::before {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, var(--cyan), var(--purple), var(--pink));
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      animation: iconRotate 4s linear infinite;
+    }
+
+    .vault-card:hover .card-icon::before {
+      opacity: 1;
+    }
+
+    @keyframes iconFloat {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-15px) rotate(5deg);
+      }
+    }
+
+    @keyframes iconRotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--gold);
+      margin-bottom: 15px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .card-desc {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 300;
+    }
+
+    /* Cinematic Reveal */
+    .reveal-vault {
+      opacity: 0;
+      transform: translateY(80px) scale(0.95);
+      filter: blur(5px);
+      transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .reveal-vault.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .vault-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .vault-hero {
+        min-height: 90vh;
+      }
+
+      .cinematic-divider::before,
+      .cinematic-divider::after {
+        display: none;
+      }
+    }
+  </style>
+
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Cinematic Effects -->
+  <div class="vignette"></div>
+  <div class="spotlight"></div>
+
+  <!-- Hero Section -->
+  <section class="vault-hero">
+    <div class="hero-badge">
+      <div class="badge-glow"></div>
+      SENTINEL VAULT ACCESS
+    </div>
+    
+    <h1 class="vault-title">
+      <span class="title-word">DIGITAL</span><br/>
+      <span class="title-word">STOREFRONT</span>
+    </h1>
+    
+    <p class="vault-subtitle">
+      Premium Collections • Exclusive Access • Digital Excellence
+    </p>
+    
+    <div class="cinematic-divider"></div>
+  </section>
+
+  <!-- Vault Grid -->
+  <div class="vault-container">
+    <div class="vault-grid">
+      
+      <a href="/pages/store-ai-products.html" class="vault-card reveal-vault">
+        <div class="card-icon">
+          🤖
+        </div>
+        <h2 class="card-title">AI Products</h2>
+        <p class="card-desc">
+          Advanced artificial intelligence solutions and cutting-edge automation tools for the digital frontier
+        </p>
+      </a>
+      
+      <a href="/pages/store-books-interactive-reading.html" class="vault-card reveal-vault" style="transition-delay: 0.15s;">
+        <div class="card-icon">
+          📚
+        </div>
+        <h2 class="card-title">Books & Reading</h2>
+        <p class="card-desc">
+          Immersive literary experiences and interactive storytelling that transcends traditional reading
+        </p>
+      </a>
+      
+      <a href="/pages/store-digital-resources.html" class="vault-card reveal-vault" style="transition-delay: 0.3s;">
+        <div class="card-icon">
+          💎
+        </div>
+        <h2 class="card-title">Digital Resources</h2>
+        <p class="card-desc">
+          Premium templates, professional tools, and curated digital assets for creators and professionals
+        </p>
+      </a>
+      
+      <a href="/pages/store-tcg-essence-crown.html" class="vault-card reveal-vault" style="transition-delay: 0.45s;">
+        <div class="card-icon">
+          👑
+        </div>
+        <h2 class="card-title">Essence Crown TCG</h2>
+        <p class="card-desc">
+          Strategic collectible card game universe with legendary cards and competitive gameplay
+        </p>
+      </a>
+      
+      <a href="#" class="vault-card reveal-vault" style="transition-delay: 0.6s; opacity: 0.6;">
+        <div class="card-icon">
+          ✨
+        </div>
+        <h2 class="card-title">Coming Soon</h2>
+        <p class="card-desc">
+          More extraordinary digital experiences and premium collections arriving soon
+        </p>
+      </a>
+      
+    </div>
+  </div>
+
+  <script>
+    // Particle System
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    const particleCount = 80;
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = Math.random() * 0.5 - 0.25;
+        this.speedY = Math.random() * 0.5 - 0.25;
+        this.opacity = Math.random() * 0.5 + 0.2;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+      }
+
+      draw() {
+        ctx.fillStyle = `rgba(255, 215, 0, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+
+      // Draw connections
+      particles.forEach((a, i) => {
+        particles.slice(i + 1).forEach(b => {
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
+            ctx.strokeStyle = `rgba(255, 215, 0, ${0.2 * (1 - distance / 150)})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        });
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    // Cinematic Reveal on Scroll
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-vault').forEach((el) => {
+      observer.observe(el);
+    });
+  </script>
+
+      
+    <!-- ===== END CUSTOM PAGE CODE ===== -->
+  </main>
+
+  <!-- FOOTER -->
+  <div id="site-footer"></div>
+
+  <!-- DO NOT TOUCH -->
+  <script src="/assets/js/layout.js"></script>
+  <script type="module" src="/assets/js/app.js"></script>
+
+</body>
+</html>

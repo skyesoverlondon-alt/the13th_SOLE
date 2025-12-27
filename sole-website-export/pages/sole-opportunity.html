@@ -1,0 +1,1758 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ========= EDIT THESE ========= -->
+  <title>PAGE_TITLE | SOLEnterprises</title>
+  <meta name="description" content="PAGE_DESCRIPTION" />
+  <!-- ============================== -->
+
+  <meta property="og:title" content="PAGE_TITLE | SOLEnterprises" />
+  <meta property="og:description" content="PAGE_DESCRIPTION" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+
+<body>
+
+  <!-- HEADER (menu loads here) -->
+  <div id="site-header"></div>
+
+  <!-- =====================================================
+       DROP ZONE (REAL HTML CONTAINER)
+       Paste ANY valid HTML INSIDE <main> below.
+       Do NOT paste <html>, <head>, or <body>
+       You MAY paste <style> and <script> if needed
+       ===================================================== -->
+  <main class="page" id="page-content">
+    <!-- ===== START CUSTOM PAGE CODE ===== -->
+<!-- =========================
+     /pages/sole-opportunity.html
+     SOLE Opportunity Funnel Page (No header/footer)
+     ========================= -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SOLE Opportunity | SOLEnterprises</title>
+  <meta name="description" content="Unleash your SOLE Potential. Four business models. Real operator math. Driver education, office rentals, fleet rentals, and document enterprise with LLC FILER PRO™. Built to scale." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@600;800&display=swap');
+
+    :root{
+      --bg0:#05060c;
+      --bg1:#070a14;
+      --ink:#e9e6ff;
+      --muted:#b9b1ffcc;
+
+      --p1:#7a2cff;  /* royal neon purple */
+      --p2:#c94bff;  /* nebula magenta */
+      --b1:#2fd7ff;  /* neon cyan */
+      --g1:#ffd66b;  /* divine gold */
+      --g2:#ffb300;  /* molten gold */
+
+      --glass: rgba(18, 14, 36, 0.56);
+      --glass2: rgba(10, 10, 22, 0.44);
+      --stroke: rgba(205, 180, 255, 0.22);
+      --stroke2: rgba(255, 214, 107, 0.18);
+      --shadow: 0 24px 80px rgba(0,0,0,.55);
+      --shadow2: 0 10px 30px rgba(0,0,0,.42);
+      --radius: 22px;
+      --radius2: 28px;
+
+      --max: 1160px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%; cursor:none}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 700px at 18% 12%, rgba(122,44,255,.28), transparent 60%),
+        radial-gradient(800px 600px at 82% 18%, rgba(47,215,255,.18), transparent 55%),
+        radial-gradient(900px 650px at 50% 92%, rgba(255,214,107,.14), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      font-family: 'Orbitron', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      overflow-x:hidden;
+      position:relative;
+    }
+
+    /* CUSTOM CURSOR */
+    #cursor{
+      position:fixed;
+      width:24px;
+      height:24px;
+      border:2px solid var(--g1);
+      border-radius:50%;
+      pointer-events:none;
+      z-index:99999;
+      transform:translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s, border-color 0.2s;
+      box-shadow: 0 0 20px rgba(255,214,107,.6), 0 0 40px rgba(122,44,255,.4);
+    }
+    #cursor.active{
+      width:48px;
+      height:48px;
+      border-color:var(--b1);
+      box-shadow: 0 0 30px rgba(47,215,255,.8), 0 0 60px rgba(122,44,255,.6);
+    }
+    #cursor-glow{
+      position:fixed;
+      width:400px;
+      height:400px;
+      background:radial-gradient(circle, rgba(122,44,255,.15), transparent 70%);
+      pointer-events:none;
+      z-index:99998;
+      transform:translate(-50%, -50%);
+      filter:blur(40px);
+    }
+
+    /* FLOATING ORBS */
+    .orb{
+      position:fixed;
+      border-radius:50%;
+      pointer-events:none;
+      filter:blur(80px);
+      opacity:.5;
+      animation: float 20s ease-in-out infinite;
+      z-index:1;
+    }
+    .orb1{
+      width:400px; height:400px;
+      background:radial-gradient(circle, rgba(122,44,255,.3), transparent);
+      top:10%; left:15%;
+      animation-duration:25s;
+    }
+    .orb2{
+      width:500px; height:500px;
+      background:radial-gradient(circle, rgba(47,215,255,.25), transparent);
+      top:60%; right:10%;
+      animation-duration:30s; animation-delay:-8s;
+    }
+    .orb3{
+      width:350px; height:350px;
+      background:radial-gradient(circle, rgba(255,214,107,.2), transparent);
+      bottom:15%; left:40%;
+      animation-duration:22s; animation-delay:-15s;
+    }
+    @keyframes float{
+      0%, 100%{transform:translate(0, 0) scale(1)}
+      33%{transform:translate(60px, -80px) scale(1.1)}
+      66%{transform:translate(-40px, 60px) scale(.9)}
+    }
+
+    /* SIGIL OVERLAY */
+    body:before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cdefs%3E%3CradialGradient id='rg'%3E%3Cstop offset='0%25' stop-color='%237a2cff' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='transparent'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg fill='none' stroke='%23ffd66b' stroke-width='1.5' opacity='0.15'%3E%3Ccircle cx='400' cy='400' r='350'/%3E%3Ccircle cx='400' cy='400' r='280'/%3E%3Ccircle cx='400' cy='400' r='200'/%3E%3Cpath d='M400 100 L500 300 L650 350 L500 450 L500 600 L400 500 L300 600 L300 450 L150 350 L300 300 Z'/%3E%3Cpath d='M400 200 L450 320 L550 350 L450 400 L450 500 L400 450 L350 500 L350 400 L250 350 L350 320 Z'/%3E%3C/g%3E%3Crect width='800' height='800' fill='url(%23rg)'/%3E%3C/svg%3E");
+      background-size:1200px 1200px;
+      background-position:center;
+      opacity:.4;
+      animation: sigilRotate 60s linear infinite;
+      z-index:1;
+    }
+    @keyframes sigilRotate{
+      from{transform:rotate(0deg)}
+      to{transform:rotate(360deg)}
+    }
+
+    /* cosmic sparkle film */
+    body:after{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(2px 2px at 12% 18%, rgba(255,255,255,.35), transparent 60%),
+        radial-gradient(1px 1px at 27% 42%, rgba(255,255,255,.28), transparent 60%),
+        radial-gradient(2px 2px at 61% 23%, rgba(255,255,255,.30), transparent 60%),
+        radial-gradient(1px 1px at 76% 58%, rgba(255,255,255,.22), transparent 60%),
+        radial-gradient(2px 2px at 89% 33%, rgba(255,255,255,.26), transparent 60%),
+        radial-gradient(1px 1px at 42% 78%, rgba(255,255,255,.22), transparent 60%),
+        radial-gradient(2px 2px at 18% 86%, rgba(255,255,255,.18), transparent 60%);
+      opacity:.55;
+      mix-blend-mode:screen;
+      filter: blur(.15px);
+      z-index:2;
+      animation: sparkle 3s ease-in-out infinite;
+    }
+    @keyframes sparkle{
+      0%, 100%{opacity:.55}
+      50%{opacity:.75}
+    }
+
+    a{color:inherit; text-decoration:none; cursor:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding: 18px 18px 90px; position:relative; z-index:3}
+    .row{display:flex; gap:16px; flex-wrap:wrap;}
+    .center{display:flex; justify-content:center; align-items:center}
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      background: linear-gradient(135deg, rgba(122,44,255,.20), rgba(47,215,255,.14));
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      font-weight:700;
+      letter-spacing:.2px;
+      animation: fadeInUp 0.8s ease-out;
+      transition: all 0.3s ease;
+    }
+    .pill:hover{
+      transform:translateY(-2px);
+      box-shadow: 0 15px 40px rgba(122,44,255,.4), 0 0 30px rgba(255,214,107,.3);
+    }
+    .dot{
+      width:10px; height:10px; border-radius:99px;
+      background: radial-gradient(circle, var(--g1), rgba(255,214,107,.1));
+      box-shadow: 0 0 18px rgba(255,214,107,.55), 0 0 28px rgba(122,44,255,.35);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes fadeInUp{
+      from{opacity:0; transform:translateY(30px)}
+      to{opacity:1; transform:translateY(0)}
+    }
+
+    /* mosaic / stained glass sections */
+    .mosaic{
+      position:relative;
+      border-radius: var(--radius2);
+      background:
+        radial-gradient(1400px 700px at 20% 10%, rgba(122,44,255,.22), transparent 55%),
+        radial-gradient(900px 700px at 80% 0%, rgba(255,214,107,.16), transparent 55%),
+        radial-gradient(900px 800px at 50% 110%, rgba(47,215,255,.12), transparent 60%),
+        linear-gradient(180deg, rgba(18, 14, 36, 0.62), rgba(10,10,22,0.52));
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      opacity:0;
+      transform:translateY(50px);
+      animation: fadeInSection 1s ease-out forwards;
+    }
+    @keyframes fadeInSection{
+      to{opacity:1; transform:translateY(0)}
+    }
+    .mosaic:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(900px 420px at 25% 18%, rgba(255,214,107,.10), transparent 62%),
+        radial-gradient(700px 480px at 75% 24%, rgba(122,44,255,.14), transparent 64%),
+        linear-gradient(90deg, rgba(47,215,255,.08), transparent 40%, rgba(255,214,107,.07));
+      opacity:.9;
+      mix-blend-mode: screen;
+      pointer-events:none;
+      filter: blur(0px);
+      animation: shimmer 4s ease-in-out infinite;
+    }
+    @keyframes shimmer{
+      0%, 100%{opacity:.9}
+      50%{opacity:1}
+    }
+    .mosaic:after{
+      /* rune lattice overlay */
+      content:"";
+      position:absolute; inset:0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='520'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffd66b' stop-opacity='0.22'/%3E%3Cstop offset='55%25' stop-color='%237a2cff' stop-opacity='0.10'/%3E%3Cstop offset='100%25' stop-color='%23000000' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg fill='none' stroke='%232fd7ff' stroke-opacity='0.18'%3E%3Cpath d='M260 40 L300 110 L380 130 L320 190 L335 270 L260 230 L185 270 L200 190 L140 130 L220 110 Z'/%3E%3Cpath d='M260 110 L280 155 L330 165 L290 195 L300 240 L260 215 L220 240 L230 195 L190 165 L240 155 Z'/%3E%3Ccircle cx='260' cy='260' r='220' stroke-opacity='0.10'/%3E%3Ccircle cx='260' cy='260' r='160' stroke-opacity='0.08'/%3E%3Ccircle cx='260' cy='260' r='100' stroke-opacity='0.10'/%3E%3C/g%3E%3Crect width='520' height='520' fill='url(%23g)'/%3E%3C/svg%3E");
+      background-size: 520px 520px;
+      opacity:.55;
+      mix-blend-mode: screen;
+      pointer-events:none;
+      filter: saturate(1.2) contrast(1.05);
+      animation: drift 18s linear infinite;
+    }
+    @keyframes drift{
+      0%{transform: translate3d(0,0,0) rotate(0deg)}
+      50%{transform: translate3d(-18px, 12px,0) rotate(2deg)}
+      100%{transform: translate3d(0,0,0) rotate(0deg)}
+    }
+
+    .pad{padding: 26px;}
+    .soft{color:var(--muted)}
+    .kicker{font-weight:900; letter-spacing:.6px; text-transform:uppercase; font-size:12px; color:#fff; opacity:.92}
+    .hr{
+      height:1px; width:100%;
+      background: linear-gradient(90deg, transparent, rgba(255,214,107,.35), rgba(47,215,255,.25), rgba(122,44,255,.35), transparent);
+      margin: 18px 0;
+      opacity:.85;
+    }
+
+    /* neon typography */
+    .h1{
+      margin: 10px 0 10px;
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height: 1.02;
+      letter-spacing:-.8px;
+      font-weight: 950;
+      font-family: 'Cinzel', serif;
+      text-shadow:
+        0 0 18px rgba(122,44,255,.42),
+        0 0 28px rgba(47,215,255,.22),
+        0 0 36px rgba(255,214,107,.14);
+      animation: titleGlow 3s ease-in-out infinite;
+    }
+    @keyframes titleGlow{
+      0%, 100%{
+        text-shadow:
+          0 0 18px rgba(122,44,255,.42),
+          0 0 28px rgba(47,215,255,.22),
+          0 0 36px rgba(255,214,107,.14);
+      }
+      50%{
+        text-shadow:
+          0 0 28px rgba(122,44,255,.62),
+          0 0 38px rgba(47,215,255,.42),
+          0 0 46px rgba(255,214,107,.34);
+      }
+    }
+    .neon{
+      background: linear-gradient(90deg, var(--p2), var(--b1), var(--g1));
+      background-size: 200% 100%;
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      filter: drop-shadow(0 0 12px rgba(122,44,255,.22));
+      animation: neonFlow 4s linear infinite;
+    }
+    @keyframes neonFlow{
+      0%{background-position:0% 50%}
+      100%{background-position:200% 50%}
+    }
+    .sub{
+      font-size: 16px;
+      line-height:1.55;
+      color: var(--muted);
+      max-width: 68ch;
+    }
+
+    /* central buy button */
+    .cta{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      border:1px solid rgba(255,214,107,.35);
+      background:
+        radial-gradient(120px 80px at 30% 40%, rgba(255,214,107,.25), transparent 60%),
+        radial-gradient(220px 120px at 80% 30%, rgba(47,215,255,.18), transparent 65%),
+        linear-gradient(135deg, rgba(122,44,255,.28), rgba(10,10,22,.65));
+      box-shadow:
+        0 14px 40px rgba(0,0,0,.55),
+        0 0 24px rgba(255,214,107,.18),
+        0 0 34px rgba(122,44,255,.16);
+      font-weight: 900;
+      letter-spacing:.2px;
+      position:relative;
+      overflow:hidden;
+      transform: translateZ(0);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cta:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: linear-gradient(90deg, transparent, rgba(255,214,107,.28), rgba(47,215,255,.18), transparent);
+      transform: translateX(-60%);
+      animation: sheen 2.9s ease-in-out infinite;
+      opacity:.9;
+    }
+    @keyframes sheen{
+      0%{transform: translateX(-60%)}
+      50%{transform: translateX(60%)}
+      100%{transform: translateX(-60%)}
+    }
+    .cta span{position:relative; z-index:1}
+    .cta small{opacity:.9; font-weight:800}
+    .cta:hover{
+      filter:saturate(1.2); 
+      transform: translateY(-4px) scale(1.05);
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.65),
+        0 0 40px rgba(255,214,107,.4),
+        0 0 60px rgba(122,44,255,.3);
+      border-color: rgba(255,214,107,.7);
+    }
+    .cta:active{transform: translateY(-2px) scale(1.02)}
+
+    /* in-page nav */
+    .nav{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 18px;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      transition: all 0.3s ease;
+    }
+    .chip:hover{
+      border-color: rgba(255,214,107,.7);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(122,44,255,.3), 0 0 20px rgba(255,214,107,.2);
+      background: rgba(10,10,22,.65);
+    
+      border:1px solid var(--stroke);
+      background: rgba(10,10,22,.42);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--shadow2);
+      font-weight:800;
+      opacity:.96;
+    }
+    .chip:hover{border-color: rgba(255,214,107,.32)}
+
+    /* fold */
+    .fold{
+      margin-top:16px;
+      padding: 18px 18px 20px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,214,107,.22);
+      background:
+        linear-gradient(135deg, rgba(255,214,107,.12), rgba(122,44,255,.14), rgba(47,215,255,.10)),
+        rgba(10,10,22,.40);
+      box-shadow: var(--shadow2);
+      position:relative;
+      overflow:hidden;
+    }
+    .fold h2{
+      margin: 0;
+      font-weight: 950;
+      letter-spacing:-.4px;
+      font-size: clamp(22px, 2.3vw, 30px);
+      text-shadow: 0 0 18px rgba(255,214,107,.14), 0 0 22px rgba(122,44,255,.20);
+    }
+    .fold .glowline{
+      height:2px;
+      width: 100%;
+      background: linear-gradient(90deg, rgba(122,44,255,.0), rgba(122,44,255,.65), rgba(255,214,107,.62), rgba(47,215,255,.55), rgba(122,44,255,.0));
+      margin: 12px 0 6px;
+      filter: blur(.1px);
+      opacity:.95;
+    }
+    .fold p{margin: 10px 0 0; color: var(--muted); line-height:1.6}
+
+    /* cards grid */
+    .grid-2{display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:16px;}
+    .grid-3{display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:16px;}
+    @media (max-width: 980px){
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+    }
+
+    .card{
+      position:relative;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(600px 200px at 30% 10%, rgba(122,44,255,.18), transparent 55%),
+        radial-gradient(520px 240px at 80% 0%, rgba(255,214,107,.12), transparent 60%),
+        linear-gradient(180deg, rgba(18,14,36,.58), rgba(10,10,22,.45));
+      border:1px solid rgba(205,180,255,.20);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity:0;
+      transform:translateY(40px) scale(0.95);
+      animation: cardFloat 0.8s ease-out forwards;
+    }
+    @keyframes cardFloat{
+      to{opacity:1; transform:translateY(0) scale(1)}
+    }
+    .card:hover{
+      transform:translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 60px rgba(122,44,255,.4), 0 0 40px rgba(255,214,107,.2);
+      border-color: rgba(255,214,107,.5);
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(90deg, rgba(47,215,255,.09), transparent 36%, rgba(255,214,107,.07));
+      opacity:.7;
+      pointer-events:none;
+      mix-blend-mode:screen;
+      animation: cardSheen 3s ease-in-out infinite;
+    }
+    @keyframes cardSheen{
+      0%, 100%{opacity:.7}
+      50%{opacity:1}
+    }
+    .card .in{padding:18px 18px 16px}
+    .card h3{margin:0 0 8px; font-size:18px; font-weight:950; letter-spacing:-.2px}
+    .card p{margin:0; color: var(--muted); line-height:1.55}
+    .tag{
+      display:inline-flex; gap:8px; align-items:center;
+      font-weight:900; letter-spacing:.2px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,214,107,.20);
+      background: rgba(10,10,22,.38);
+      margin-bottom: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,.28);
+    }
+
+    /* tables */
+    .table-wrap{
+      border-radius: var(--radius);
+      border:1px solid rgba(205,180,255,.20);
+      background: rgba(10,10,22,.36);
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-size: 14px;
+    }
+    th, td{
+      padding: 12px 12px;
+      border-bottom: 1px solid rgba(205,180,255,.12);
+      vertical-align: top;
+      transition: all 0.3s ease;
+    }
+    th{
+      text-align:left;
+      font-size: 12px;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      color: rgba(255,255,255,.86);
+      background:
+        linear-gradient(90deg, rgba(122,44,255,.20), rgba(47,215,255,.14), rgba(255,214,107,.12));
+    }
+    tr:hover td{
+      background: rgba(122,44,255,.06);
+      transform:scale(1.01);
+    }
+    .num{
+      font-variant-numeric: tabular-nums; 
+      font-weight:900;
+      font-family: 'Orbitron', monospace;
+      text-shadow: 0 0 8px currentColor;
+      animation: numberPulse 2s ease-in-out infinite;
+    }
+    @keyframes numberPulse{
+      0%, 100%{text-shadow: 0 0 8px currentColor}
+      50%{text-shadow: 0 0 16px currentColor, 0 0 24px currentColor}
+    }
+    .gold{
+      color: var(--g1);
+      text-shadow: 0 0 12px rgba(255,214,107,.6), 0 0 20px rgba(255,179,0,.4);
+    }
+    .cyan{
+      color: var(--b1);
+      text-shadow: 0 0 12px rgba(47,215,255,.6), 0 0 20px rgba(47,215,255,.4);
+    }
+    .violet{
+      color: #d6b8ff;
+      text-shadow: 0 0 12px rgba(214,184,255,.6), 0 0 20px rgba(122,44,255,.4);
+    }
+    .small{font-size:12px; color: var(--muted)}
+    .flash{
+      display:inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border:1px solid rgba(255,214,107,.22);
+      background: rgba(10,10,22,.35);
+      font-weight: 950;
+      letter-spacing:.8px;
+      text-transform: uppercase;
+      animation: flashIntense 1.15s ease-in-out infinite;
+      box-shadow: 0 0 24px rgba(255,214,107,.12), 0 0 30px rgba(122,44,255,.10);
+    }
+    @keyframes flashIntense{
+      0%,100%{
+        filter:brightness(1);
+        transform:scale(1);
+        box-shadow: 0 0 24px rgba(255,214,107,.12), 0 0 30px rgba(122,44,255,.10);
+      }
+      50%{
+        filter:brightness(1.4);
+        transform:scale(1.05);
+        box-shadow: 0 0 36px rgba(255,214,107,.4), 0 0 48px rgba(122,44,255,.3);
+      }
+    }
+
+    /* footer-like close section but still "no footer" (it’s just last section) */
+    .final-cta{
+      text-align:center;
+      padding: 24px;
+    }
+
+    /* Scroll reveal */
+    .reveal{
+      opacity:0;
+      transform:translateY(60px);
+    }
+    .reveal.active{
+      animation: revealUp 0.8s ease-out forwards;
+    }
+    @keyframes revealUp{
+      to{opacity:1; transform:translateY(0)}
+    }
+
+    /* Delay animations */
+    .card:nth-child(1){animation-delay:0.1s}
+    .card:nth-child(2){animation-delay:0.2s}
+    .card:nth-child(3){animation-delay:0.3s}
+    .card:nth-child(4){animation-delay:0.4s}
+  </style>
+</head>
+<body>
+  <!-- CURSOR -->
+  <div id="cursor"></div>
+  <div id="cursor-glow"></div>
+
+  <!-- FLOATING ORBS -->
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></divmono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono"; font-size: 12px}
+
+    /* Accessible focus */
+    a:focus, button:focus{outline: 2px solid rgba(47,215,255,.6); outline-offset: 3px; border-radius: 12px;}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="mosaic" id="top" aria-label="SOLE Opportunity Hero">
+      <div class="pad">
+        <div class="pill"><span class="dot"></span><span>SOLEnterprises Operator Network • Four Models • One System</span></div>
+
+        <h1 class="h1">
+          <span class="neon">UNLEASH YOUR SOLE POTENTIAL</span><br/>
+          Build an LLC that runs like a machine — and scales like a constellation.
+        </h1>
+
+        <p class="sub">
+          SOLE isn’t “motivation.” It’s a structured operator pathway: <b>Driver income + scalable business models + enterprise-grade documents</b>,
+          with clean rules, real math, and a system you don’t redesign — you steer.
+        </p>
+
+        <div class="nav" aria-label="In-page navigation">
+          <a class="chip" href="#charts">📈 Earnings Charts</a>
+          <a class="chip" href="#journey">⚡ Start Your SOLE Journey</a>
+          <a class="chip" href="#models">🧩 Four Models</a>
+          <a class="chip" href="#packages">🟣🟡🟠 Doc Packages</a>
+          <a class="chip" href="#filer">🌌 LLC FILER PRO™</a>
+          <a class="chip" href="#deep">🛰️ Deeper Details</a>
+          <a class="chip" href="#faq">🧠 FAQ</a>
+          <a class="chip" href="#contact">📩 Contact</a>
+        </div>
+
+        <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+          <!-- CENTRAL BUTTON (ONLY OUTBOUND LINK) -->
+          <a class="cta" href="/pages/store-hub.html" aria-label="Open Store Hub">
+            <span>🛒 OPEN STORE HUB</span>
+            <small class="mono">/pages/store-hub.html</small>
+          </a>
+          <a class="chip" href="#contact">🧿 Contact Us</a>
+        </div>
+
+        <div class="fold" style="margin-top:18px;">
+          <h2>💜✨ <span class="neon">Unleash Your SOLE Potential!</span> ✨💛</h2>
+          <div class="glowline"></div>
+          <p>
+            This page is a funnel with receipts: <b>what you can run, how it earns, and how it scales</b>.
+            If you want a business that feels like stability — not chaos — you’re in the right realm.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHARTS -->
+    <span class="anchor" id="charts"></span>
+    <section class="mosaic" style="margin-top:16px;" aria-label="Earnings charts">
+      <div class="pad">
+        <div class="row" style="align-items:center; justify-content:space-between;">
+          <div>
+            <div class="kicker">📈 Operator Math (Gross → SOLE 13% → Net)</div>
+            <h2 style="margin:8px 0 0; font-size:28px; font-weight:950; letter-spacing:-.4px;">
+              The charts below reflect the exact earning logic you defined.
+            </h2>
+            <p class="soft" style="margin:10px 0 0; max-width:74ch;">
+              These are <b>gross revenue</b> scenarios. The SOLE 13% allocation is applied first, before any reimbursements.
+              Profit depends on your expenses (insurance, utilities, maintenance, vacancy, marketing, etc.).
+            </p>
+          </div>
+          <div style="min-width:260px; text-align:right;">
+            <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+            <div class="small" style="margin-top:8px;">Use this button whenever you decide to buy.</div>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="grid-2">
+          <!-- Rentals baseline -->
+          <div class="card">
+            <div class="in">
+              <div class="tag">🚗🏢 Capacity Rentals Baseline</div>
+              <h3>2 Cars + 2 Offices (Monthly + Annual)</h3>
+              <p class="soft">Using the preferred monthly rate model you locked: $466 per vehicle / month and $466 per office / month.</p>
+              <div class="table-wrap" style="margin-top:12px;">
+                <table aria-label="Rentals baseline table">
+                  <thead>
+                    <tr>
+                      <th>Metric</th>
+                      <th class="num">Monthly</th>
+                      <th class="num">Annual</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Gross (2 cars)</td>
+                      <td class="num gold">$932.00</td>
+                      <td class="num gold">$11,184.00</td>
+                    </tr>
+                    <tr>
+                      <td>Gross (2 offices)</td>
+                      <td class="num gold">$932.00</td>
+                      <td class="num gold">$11,184.00</td>
+                    </tr>
+                    <tr>
+                      <td><b>Gross (combined rentals)</b></td>
+                      <td class="num cyan"><b>$1,864.00</b></td>
+                      <td class="num cyan"><b>$22,368.00</b></td>
+                    </tr>
+                    <tr>
+                      <td>SOLE 13%</td>
+                      <td class="num violet">$242.32</td>
+                      <td class="num violet">$2,907.84</td>
+                    </tr>
+                    <tr>
+                      <td><b>Net to your LLC</b></td>
+                      <td class="num"><b>$1,621.68</b></td>
+                      <td class="num"><b>$19,460.16</b></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="small" style="margin-top:10px;">Links: this section only. Buying is always via the Store Hub button above.</p>
+            </div>
+          </div>
+
+          <!-- Combined scenarios -->
+          <div class="card">
+            <div class="in">
+              <div class="tag">🌌📊 Combined Scenarios</div>
+              <h3>Rentals + Docs (Monthly & Annual)</h3>
+              <p class="soft">Every line follows the same rule: <b>Gross → SOLE 13% → Net</b>.</p>
+
+              <div class="table-wrap" style="margin-top:12px;">
+                <table aria-label="Combined scenarios table">
+                  <thead>
+                    <tr>
+                      <th>Scenario</th>
+                      <th class="num">Monthly Gross</th>
+                      <th class="num">Monthly Net</th>
+                      <th class="num">Annual Net</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Rentals only (2 cars + 2 offices)</td>
+                      <td class="num gold">$1,864.00</td>
+                      <td class="num">$1,621.68</td>
+                      <td class="num">$19,460.16</td>
+                    </tr>
+                    <tr>
+                      <td>+ 3 Starter Docs (3 × $444)</td>
+                      <td class="num gold">$3,196.00</td>
+                      <td class="num">$2,780.52</td>
+                      <td class="num">$33,366.24</td>
+                    </tr>
+                    <tr>
+                      <td>+ 1 Enterprise ($1,850)</td>
+                      <td class="num gold">$3,714.00</td>
+                      <td class="num">$3,231.18</td>
+                      <td class="num">$38,774.16</td>
+                    </tr>
+                    <tr>
+                      <td>+ 2 Enterprise / month ($3,700)</td>
+                      <td class="num gold">$5,564.00</td>
+                      <td class="num">$4,840.68</td>
+                      <td class="num">$58,088.16</td>
+                    </tr>
+                    <tr>
+                      <td>+ 1 Silent Partner Edition (target $3,100)</td>
+                      <td class="num gold">$4,964.00</td>
+                      <td class="num">$4,318.68</td>
+                      <td class="num">$51,824.16</td>
+                    </tr>
+                    <tr>
+                      <td>+ 1 LLC FILER PRO™ (discount target $3,675)</td>
+                      <td class="num gold">$5,539.00</td>
+                      <td class="num">$4,818.93</td>
+                      <td class="num">$57,827.16</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="hr"></div>
+
+              <div class="table-wrap">
+                <table aria-label="Docs only quick reference">
+                  <thead>
+                    <tr>
+                      <th>Docs-only Reference</th>
+                      <th class="num">Monthly Net</th>
+                      <th class="num">Annual Net</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1 Enterprise / month ($1,850)</td>
+                      <td class="num">$1,609.50</td>
+                      <td class="num">$19,314.00</td>
+                    </tr>
+                    <tr>
+                      <td>2 Enterprise / month ($3,700)</td>
+                      <td class="num">$3,219.00</td>
+                      <td class="num">$38,628.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+                <a class="chip" href="#journey">⚡ Next: Start Your SOLE Journey</a>
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <!-- Driving + Docs math -->
+        <div class="card">
+          <div class="in">
+            <div class="tag">🧿🚚 Driver Track + Docs Track (Stacked)</div>
+            <h3>Full-Time Driving + 3 Starter Docs / Month (Your Stated Combined Path)</h3>
+            <p class="soft">
+              After a six-month implementation period following your Driver Handbook: full-time drivers have not grossed less than <b>$6,000/month</b>,
+              and your baseline guarantee is <b>$67,000/year</b> driving alone. Add 3 Starter doc services/month ($1,332/month; $15,984/year).
+            </p>
+            <div class="table-wrap" style="margin-top:12px;">
+              <table aria-label="Driver + docs combined table">
+                <thead>
+                  <tr>
+                    <th>Component</th>
+                    <th class="num">Annual Gross</th>
+                    <th class="num">SOLE 13%</th>
+                    <th class="num">Net to your LLC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Full-Time Driving (baseline)</td>
+                    <td class="num gold">$67,000.00</td>
+                    <td class="num violet">$8,710.00</td>
+                    <td class="num">$58,290.00</td>
+                  </tr>
+                  <tr>
+                    <td>Starter Docs (3/month)</td>
+                    <td class="num gold">$15,984.00</td>
+                    <td class="num violet">$2,077.92</td>
+                    <td class="num">$13,906.08</td>
+                  </tr>
+                  <tr>
+                    <td><b>Total</b></td>
+                    <td class="num cyan"><b>$82,984.00</b></td>
+                    <td class="num violet"><b>$10,787.92</b></td>
+                    <td class="num"><b>$72,196.08</b></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+              <a class="chip" href="#models">🧩 See The Four Models</a>
+              <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- START JOURNEY -->
+    <span class="anchor" id="journey"></span>
+    <section class="mosaic" style="margin-top:16px;" aria-label="Start your journey">
+      <div class="pad">
+        <div class="flash">✨ START YOUR SOLE JOURNEY TODAY ✨</div>
+        <h2 style="margin:12px 0 0; font-size:30px; font-weight:950; letter-spacing:-.5px;">
+          Build from nothing — or refine what already exists — into a machine that can break $100,000.
+        </h2>
+        <p class="soft" style="margin:10px 0 0; max-width:88ch;">
+          SOLEnterprises helps install the structure that makes revenue predictable. Whether you want to partner as an existing business
+          and add six figures of additional revenue, or start an LLC on track to gross $100,000 — the system is built to be steered, not redesigned.
+        </p>
+
+        <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+          <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+          <a class="chip" href="#contact">📩 Contact Us</a>
+          <a class="chip" href="#packages">🟣🟡🟠 Choose Your Tier</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUR MODELS OVERVIEW -->
+    <span class="anchor" id="models"></span>
+    <section class="mosaic" style="margin-top:16px;" aria-label="Four business models overview">
+      <div class="pad">
+        <div class="kicker">🧩 Four Models • One Constellation</div>
+        <h2 style="margin:8px 0 0; font-size:30px; font-weight:950; letter-spacing:-.5px;">
+          The Four Business Models We Set Up Operators With
+        </h2>
+        <p class="soft" style="margin:10px 0 0; max-width:90ch;">
+          These models are designed to interlock. Start with one, stack the rest, and keep your operation calm.
+        </p>
+
+        <div class="hr"></div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="in">
+              <div class="tag">🚚 Driver Model</div>
+              <h3>Earn while you build</h3>
+              <p>
+                If you’re licensed, insured, and pass screening, you can enroll into the SOLE Driver Education course. Executives show you how
+                to access over 13 gig/contract pathways and build a book of business while driving — discreetly, cleanly, and consistently.
+              </p>
+              <div style="margin-top:12px;">
+                <a class="chip" href="#deep-driver">↳ Read Deeper</a>
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="in">
+              <div class="tag">🏢 Office Rental Model</div>
+              <h3>Professional footprint</h3>
+              <p>
+                A stable office presence supports credibility, onboarding, and operations. The system helps you structure usage, scheduling,
+                rules, and clean boundaries so the office becomes a tool — not a headache.
+              </p>
+              <div style="margin-top:12px;">
+                <a class="chip" href="#deep-office">↳ Read Deeper</a>
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="in">
+              <div class="tag">🚗 Business Fleet Rentals</div>
+              <h3>Capacity you control</h3>
+              <p>
+                A small internal fleet can become a launching pad for contractors (and a revenue layer). The system focuses on clean scheduling,
+                clear terms, and documentation so you can scale without chaos.
+              </p>
+              <div style="margin-top:12px;">
+                <a class="chip" href="#deep-fleet">↳ Read Deeper</a>
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="in">
+              <div class="tag">🟣🟡🟠 Doc Enterprise + LLC FILER</div>
+              <h3>The control layer</h3>
+              <p>
+                Documents are the difference between a “side hustle” and a business that holds under pressure. This model installs enterprise-grade
+                structure and clean operating boundaries — and can be sold while you’re already moving through the world.
+              </p>
+              <div style="margin-top:12px;">
+                <a class="chip" href="#packages">↳ See Packages</a>
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="fold">
+          <h2>🧿 The system is built to be steered.</h2>
+          <div class="glowline"></div>
+          <p class="soft">
+            You don’t win by inventing new moves every day. You win by running the same clean moves until your life stops feeling like work.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <span class="anchor" id="packages"></span>
+    <section class="mosaic" style="margin-top:16px;" aria-label="Document services packages">
+      <div class="pad">
+        <div class="kicker">🟣🟡🟠 Core Document Services</div>
+        <h2 style="margin:8px 0 0; font-size:30px; font-weight:950; letter-spacing:-.5px;">
+          Choose Your Tier — Then Sell It Cleanly
+        </h2>
+        <p class="soft" style="margin:10px 0 0; max-width:90ch;">
+          Below are the three tiers with a simple earning reference: <b>median if you sell 3 per month for a year</b>.
+          (This is revenue math — your ability is what turns math into reality.)
+        </p>
+
+        <div class="hr"></div>
+
+        <div class="grid-3">
+          <!-- Starter -->
+          <div class="card">
+            <div class="in">
+              <div class="tag">🟣 Starter (Basic)</div>
+              <h3>$444 • Built for clean beginnings</h3>
+              <p class="soft">
+                A sharp foundation for operators who need structure now. Clean terms. Clean boundaries. Signature-ready basics that prevent the early chaos.
+              </p>
+              <div class="hr"></div>
+              <p class="small"><b>Median (sell 3/month for 12 months)</b></p>
+              <p class="num gold">$15,984.00 / year gross</p>
+              <p class="num violet">$2,077.92 SOLE 13%</p>
+              <p class="num">$13,906.08 net to your LLC</p>
+              <div style="margin-top:12px;">
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+                <a class="chip" href="#contact">📩 Contact Us</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Professional -->
+          <div class="card">
+            <div class="in">
+              <div class="tag">🟡 Professional</div>
+              <h3>$735 • Operator-grade structure</h3>
+              <p class="soft">
+                For businesses that need consistency: tighter policies, clearer operations, and smoother client control. Less friction. More repeatability.
+              </p>
+              <div class="hr"></div>
+              <p class="small"><b>Median (sell 3/month for 12 months)</b></p>
+              <p class="num gold">$26,460.00 / year gross</p>
+              <p class="num violet">$3,439.80 SOLE 13%</p>
+              <p class="num">$23,020.20 net to your LLC</p>
+              <div style="margin-top:12px;">
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+                <a class="chip" href="#contact">📩 Contact Us</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="card">
+            <div class="in">
+              <div class="tag">🟠 Enterprise</div>
+              <h3>$1,850 • Built for real operations</h3>
+              <p class="soft">
+                The flagship tier for founders who need systems that hold under pressure. The goal is control: fewer disputes, cleaner contracts, stronger structure.
+              </p>
+              <div class="hr"></div>
+              <p class="small"><b>Median (sell 3/month for 12 months)</b></p>
+              <p class="num gold">$66,600.00 / year gross</p>
+              <p class="num violet">$8,658.00 SOLE 13%</p>
+              <p class="num">$57,942.00 net to your LLC</p>
+              <div style="margin-top:12px;">
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+                <a class="chip" href="#contact">📩 Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+        <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center;">
+          <a class="chip" href="#filer">🌌 Next: LLC FILER PRO™</a>
+          <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LLC FILER PRO -->
+    <span class="anchor" id="filer"></span>
+    <section class="mosaic" style="margin-top:16px;" aria-label="LLC Filer Pro">
+      <div class="pad">
+        <div class="kicker">🌌 Formation + Launch Services</div>
+        <h2 style="margin:8px 0 0; font-size:30px; font-weight:950; letter-spacing:-.5px;">
+          LLC FILER PRO™ — White-Glove Launch (Two Paths)
+        </h2>
+        <p class="soft" style="margin:10px 0 0; max-width:92ch;">
+          This is where founders stop stalling. Guided launch + documentation architecture.
+          Below are the two versions with a simple earning reference: <b>median if you sell 3 total in a year</b>.
+        </p>
+
+        <div class="hr"></div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="in">
+              <div class="tag">🌌 LLC FILER PRO™ (White-Glove)</div>
+              <h3>Anchor $3,900 • Discount target $3,675</h3>
+              <p class="soft">
+                White-glove formation + launch support built to prevent mistakes, delays, and “I don’t know what I’m doing” chaos.
+                Clean steps. Clean approvals. Clean delivery.
+              </p>
+              <div class="hr"></div>
+              <p class="small"><b>Median (sell 3 in 12 months)</b></p>
+              <p class="num gold">$11,025.00 / year gross</p>
+              <p class="num violet">$1,433.25 SOLE 13%</p>
+              <p class="num">$9,591.75 net to your LLC</p>
+              <div style="margin-top:12px;">
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+                <a class="chip" href="#contact">📩 Contact Us</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="in">
+              <div class="tag">🤫 Silent Partner Edition</div>
+              <h3>Anchor $3,500 • Discount target $3,100</h3>
+              <p class="soft">
+                Minimal-interaction flow. Tight communication. Fast approvals. Still built to install structure — without noise.
+              </p>
+              <div class="hr"></div>
+              <p class="small"><b>Median (sell 3 in 12 months)</b></p>
+              <p class="num gold">$9,300.00 / year gross</p>
+              <p class="num violet">$1,209.00 SOLE 13%</p>
+              <p class="num">$8,091.00 net to your LLC</p>
+              <div style="margin-top:12px;">
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+                <a class="chip" href="#contact">📩 Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="fold">
+          <h2>⚡ The Close: Choose a path. Run it. Stack it.</h2>
+          <div class="glowline"></div>
+          <p class="soft">
+            If you want the cleanest way to start, you choose the tier that matches your current reality — and you move.
+            When you’re ready to buy, you only use the Store Hub button. No side links. No confusion.
+          </p>
+          <div style="margin-top:14px;">
+            <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEEPER DETAILS -->
+    <span class="anchor" id="deep"></span>
+    <section class="mosaic" style="margin-top:16px;" aria-label="Deeper model details">
+      <div class="pad">
+        <div class="kicker">🛰️ Deeper Detail • More Trust • More Clarity</div>
+        <h2 style="margin:8px 0 0; font-size:30px; font-weight:950; letter-spacing:-.5px;">
+          The Four Models — Expanded (Without Bloat)
+        </h2>
+        <p class="soft" style="margin:10px 0 0; max-width:92ch;">
+          You don’t need 40 pages to trust a system. You need clear rules, clear math, and a clear path.
+        </p>
+
+        <div class="hr"></div>
+
+        <div class="grid-2">
+          <div class="card" id="deep-driver">
+            <div class="in">
+              <div class="tag">🚚 Driver Model — Expanded</div>
+              <h3>Drive stable. Build quietly. Sell discreetly.</h3>
+              <p class="soft">
+                If you’re licensed, insured, and pass screening, you can be enrolled into the SOLE Driver Education Course.
+                Executives show you how to access over 13 gig/contract pathways, build a book of business, and structure your life so income feels like stability.
+              </p>
+              <div class="hr"></div>
+              <p class="soft">
+                Full-time driver track is designed around disciplined execution: records, routes, rules, and repeatability.
+                While you drive, you can pitch the doc/LLC flows discreetly to clients and people you meet — building a second income stream without “selling like a clown.”
+              </p>
+              <div style="margin-top:12px;">
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+                <a class="chip" href="#faq">🧠 FAQ</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" id="deep-office">
+            <div class="in">
+              <div class="tag">🏢 Office Rental — Expanded</div>
+              <h3>Credibility you can feel.</h3>
+              <p class="soft">
+                Offices are not just “space.” They are leverage: client meetings, onboarding, operations, and posture.
+                The model works because it’s documented: rules, schedules, usage, boundaries.
+              </p>
+              <div class="hr"></div>
+              <p class="soft">
+                If you want to scale, you eventually need infrastructure that looks like a business — not a hustle.
+              </p>
+              <div style="margin-top:12px;">
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+                <a class="chip" href="#contact">📩 Contact</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" id="deep-fleet">
+            <div class="in">
+              <div class="tag">🚗 Fleet Rentals — Expanded</div>
+              <h3>Capacity becomes a launching pad.</h3>
+              <p class="soft">
+                A small business fleet can support your contractors and create a steady revenue layer.
+                The key is not the car — it’s the documentation, scheduling, and discipline that makes it predictable.
+              </p>
+              <div class="hr"></div>
+              <p class="soft">
+                You can build a private network of local vendors to expand capacity without chaos.
+              </p>
+              <div style="margin-top:12px;">
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+                <a class="chip" href="#charts">📈 Back to Charts</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="in">
+              <div class="tag">🟣🟡🟠 Docs + LLC FILER — Expanded</div>
+              <h3>Control is the product.</h3>
+              <p class="soft">
+                Most businesses don’t lose because they lack “effort.” They lose because they lack boundaries.
+                The doc enterprise installs control: agreements, policies, terms, and operational clarity.
+              </p>
+              <div class="hr"></div>
+              <p class="soft">
+                When your system is clean, your conversations change. You stop convincing. You start qualifying.
+              </p>
+              <div style="margin-top:12px;">
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+                <a class="chip" href="#packages">🟣🟡🟠 See Tiers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="fold">
+          <h2>🧿 Trust is built by clarity + proof.</h2>
+          <div class="glowline"></div>
+          <p class="soft">
+            You now have the story, the math, and the models. If you want to buy, you use the central button.
+            If you want to talk, you hit Contact — and we’ll handle it cleanly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <span class="anchor" id="faq"></span>
+    <section class="mosaic" style="margin-top:16px;" aria-label="FAQ section">
+      <div class="pad">
+        <div class="kicker">🧠 FAQ</div>
+        <h2 style="margin:8px 0 0; font-size:30px; font-weight:950; letter-spacing:-.5px;">
+          No confusion. No “gotchas.” Just clear answers.
+        </h2>
+
+        <div class="hr"></div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="in">
+              <div class="tag">🧾 Is this legal advice?</div>
+              <p class="soft">
+                No. SOLEnterprises is not a law firm and does not provide legal advice. Document preparation and guided filing support are based on client-provided information and third-party platforms.
+                For legal advice, consult a licensed attorney in your jurisdiction.
+              </p>
+              <div style="margin-top:12px;">
+                <a class="chip" href="#contact">📩 Contact Us</a>
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="in">
+              <div class="tag">🛡️ Do I own my LLC?</div>
+              <p class="soft">
+                Yes. You own 100% of your LLC. You cover filing costs. Some packages may reimburse filing fees according to the terms you’re offered when you file through the system.
+              </p>
+              <div style="margin-top:12px;">
+                <a class="chip" href="#filer">🌌 See LLC FILER PRO™</a>
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="in">
+              <div class="tag">⚡ How do I buy?</div>
+              <p class="soft">
+                Simple: you use the central Store Hub button. That’s the only buy pathway on this page.
+              </p>
+              <div style="margin-top:12px;">
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="in">
+              <div class="tag">🧿 How do I speak to someone?</div>
+              <p class="soft">
+                Hit Contact. We’ll respond with next steps, intake, and timeline — clean and organized.
+              </p>
+              <div style="margin-top:12px;">
+                <a class="chip" href="#contact">📩 Contact Us</a>
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <span class="anchor" id="contact"></span>
+    <section class="mosaic" style="margin-top:16px;" aria-label="Contact section">
+      <div class="pad">
+        <div class="kicker">📩 Contact</div>
+        <h2 style="margin:8px 0 0; font-size:30px; font-weight:950; letter-spacing:-.5px;">
+          Contact SOLEnterprises — Keep it simple.
+        </h2>
+        <p class="soft" style="margin:10px 0 0; max-width:92ch;">
+          Use this section for your real contact embed later (form, email, calendar). For now, it’s a clean trust anchor.
+        </p>
+
+        <div class="hr"></div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="in">
+              <div class="tag">🧾 What to include</div>
+              <p class="soft">
+                • Your state<br/>
+                • Are you starting from zero or refining an existing business?<br/>
+                • Which model you want first (Driver / Office / Fleet / Docs)<br/>
+                • Your target: $25k / $70k / $100k+ trajectory
+              </p>
+              <div style="margin-top:12px;">
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="in">
+              <div class="tag">⚖️ Disclaimer</div>
+              <p class="soft">
+                Solenterprises is not a law firm and does not provide legal advice. Document preparation and guided filing support are based on client-provided information and third-party platforms.
+                For legal advice, consult a licensed attorney in your jurisdiction.
+              </p>
+              <div style="margin-top:12px;">
+                <a class="chip" href="#top">⬆️ Back to Top</a>
+                <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="final-cta">
+          <h2 class="h1" style="margin: 10px 0 6px;"><span class="neon">Ready to move?</span></h2>
+          <p class="soft" style="margin:0 auto 14px; max-width:86ch;">
+            If you want the system, don’t overthink it. Choose your path and start.  
+            Buying is always through the Store Hub button — clean and consistent.
+          </p>
+          <a class="cta" href="/pages/store-hub.html"><span>🛒 OPEN STORE HUB</span></a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>SOLEnterprises · FILER PRO</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Cinzel:wght@500;700&display=swap');
+
+:root {
+  --neon-purple: #b66cff;
+  --neon-gold: #ffd77a;
+  --neon-blue: #6bdcff;
+  --deep-space: #050316;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--deep-space);
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+}
+
+.flyer {
+  width: 8.5in;
+  height: 11in;
+  margin: auto;
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(5,3,22,.75), rgba(5,3,22,.9)),
+    url("https://cdn1.sharemyimage.com/2025/12/21/_51a239c2-a9b0-4b43-b164-6a992747b218.jpeg");
+  background-size: cover;
+  background-position: center;
+  border: 6px solid var(--neon-gold);
+  padding: 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Rune overlay */
+.flyer::before {
+  content: "ᚱ ᚨ ᛉ ᚲ ᚷ ᛟ ᚾ ᚢ ᚱ ᛁ ᛗ";
+  position: absolute;
+  inset: 0;
+  font-size: 64px;
+  letter-spacing: 24px;
+  opacity: 0.06;
+  color: var(--neon-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* Header */
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 42px;
+  margin: 0;
+  background: linear-gradient(90deg, var(--neon-gold), var(--neon-purple), var(--neon-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header h2 {
+  margin: 12px 0 0;
+  font-size: 20px;
+  color: var(--neon-purple);
+  letter-spacing: 2px;
+}
+
+/* Hero */
+.hero {
+  margin-top: 28px;
+  border: 2px solid rgba(255,255,255,.25);
+  border-radius: 18px;
+  padding: 28px;
+  background: rgba(0,0,0,.55);
+}
+
+.hero h3 {
+  font-size: 26px;
+  margin: 0 0 12px;
+  color: var(--neon-gold);
+}
+
+.hero p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0 0 14px;
+}
+
+.hero ul {
+  padding-left: 18px;
+  line-height: 1.7;
+}
+
+.hero li {
+  margin-bottom: 6px;
+}
+
+/* Packages */
+.packages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.pkg {
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 14px;
+  padding: 16px;
+  background: rgba(0,0,0,.45);
+}
+
+.pkg h4 {
+  margin: 0 0 6px;
+  color: var(--neon-blue);
+}
+
+.pkg span {
+  font-weight: 800;
+  color: var(--neon-gold);
+}
+
+/* Footer */
+.footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.qr {
+  text-align: center;
+}
+
+.qr img {
+  width: 150px;
+  height: 150px;
+  border: 3px solid var(--neon-gold);
+  border-radius: 12px;
+}
+
+.qr p {
+  font-size: 12px;
+  margin-top: 6px;
+  color: var(--neon-purple);
+}
+
+.contact {
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: .9;
+}
+</style>
+</head>
+
+<body>
+<div class="flyer">
+
+  <div class="header">
+    <h1>SOLEnterprises</h1>
+    <h2>⚡ Enterprise Structure · Executive Control · Silent Power ⚡</h2>
+  </div>
+
+  <div class="hero">
+    <h3>🏛️ LLC FILER PRO™ — KAIXU LEVEL LAUNCH</h3>
+    <p>
+      This is not “help with paperwork.”  
+      This is a <strong>complete business formation and control system</strong>.
+    </p>
+    <ul>
+      <li>✨ Guided or Silent LLC filing support</li>
+      <li>✨ Enterprise-grade Document Vault</li>
+      <li>✨ 31-day hosted mini website</li>
+      <li>✨ Founder press feature + visibility</li>
+      <li>✨ Built so your business runs cleanly without chaos</li>
+    </ul>
+    <p><strong>Public Anchor:</strong> $3,900  
+    <br><strong>Silent Partner Option:</strong> $3,500 (limited $3,100)</p>
+  </div>
+
+  <div class="packages">
+    <div class="pkg">
+      <h4>🟣 Starter</h4>
+      <p><span>$444</span><br>Clean foundation. Fast delivery.</p>
+    </div>
+    <div class="pkg">
+      <h4>🟡 Professional</h4>
+      <p><span>$735</span><br>Payment clarity + operational control.</p>
+    </div>
+    <div class="pkg">
+      <h4>🟠 Enterprise</h4>
+      <p><span>$1,850</span><br>Full documentation architecture.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="contact">
+      ⚖️ Solenterprises is not a law firm and does not provide legal advice.<br>
+  <!-- CINEMATIC EFFECTS -->
+  <script>
+    // Custom cursor tracking
+    const cursor = document.getElementById('cursor');
+    const cursorGlow = document.getElementById('cursor-glow');
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    // Smooth cursor follow
+    function animateCursor() {
+      const speed = 0.15;
+      cursorX += (mouseX - cursorX) * speed;
+      cursorY += (mouseY - cursorY) * speed;
+      
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+      cursorGlow.style.left = cursorX + 'px';
+      cursorGlow.style.top = cursorY + 'px';
+      
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Cursor interaction
+    const interactives = document.querySelectorAll('a, button, .chip, .cta');
+    interactives.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+    });
+
+    // Scroll reveal animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    // Observe sections
+    document.querySelectorAll('.mosaic').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+
+    // Number animation on scroll
+    function animateNumbers() {
+      const numbers = document.querySelectorAll('.num');
+      numbers.forEach(num => {
+        if (!num.dataset.animated && isInViewport(num)) {
+          const text = num.textContent;
+          const value = parseFloat(text.replace(/[^0-9.-]/g, ''));
+          if (!isNaN(value)) {
+            animateValue(num, 0, value, 1200, text);
+            num.dataset.animated = 'true';
+          }
+        }
+      });
+    }
+
+    function animateValue(element, start, end, duration, originalText) {
+      const startTime = performance.now();
+      const prefix = originalText.includes('$') ? '$' : '';
+      const suffix = originalText.includes('.00') ? '.00' : '';
+      
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        const current = start + (end - start) * easeProgress;
+        
+        let formatted = Math.floor(current).toLocaleString();
+        element.textContent = prefix + formatted + suffix;
+        
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          element.textContent = originalText;
+        }
+      }
+      
+      requestAnimationFrame(update);
+    }
+
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    }
+
+    // Trigger number animations on scroll
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(animateNumbers, 100);
+    }, { passive: true });
+
+    // Initial check
+    setTimeout(animateNumbers, 500);
+
+    // Parallax effect on orbs
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const orbs = document.querySelectorAll('.orb');
+      orbs.forEach((orb, index) => {
+        const speed = 0.3 + (index * 0.1);
+        orb.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    }, { passive: true });
+
+    // Dynamic glow on tables
+    const tables = document.querySelectorAll('table');
+    tables.forEach(table => {
+      table.addEventListener('mousemove', (e) => {
+        const rect = table.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        table.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(122,44,255,.08), transparent 50%)`;
+      });
+      table.addEventListener('mouseleave', () => {
+        table.style.background = '';
+      });
+    });
+  </script>
+
+      Document preparation & filing support only.<br><br>
+      🛡️ Legal network referrals available:<br>
+      <strong>LEGALNETWORK@SOLEnterprises.org</strong>
+    </div>
+
+    <div class="qr">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://www.solenterprises.org/" />
+      <p>Scan to begin</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
+
+
+    <!-- ===== END CUSTOM PAGE CODE ===== -->
+  </main>
+
+  <!-- FOOTER -->
+  <div id="site-footer"></div>
+
+  <!-- DO NOT TOUCH -->
+  <script src="/assets/js/layout.js"></script>
+  <script type="module" src="/assets/js/app.js"></script>
+
+</body>
+</html>

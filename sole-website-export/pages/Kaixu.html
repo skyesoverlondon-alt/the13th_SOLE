@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ========= EDIT THESE ========= -->
+  <title>PAGE_TITLE | SOLEnterprises</title>
+  <meta name="description" content="PAGE_DESCRIPTION" />
+  <!-- ============================== -->
+
+  <meta property="og:title" content="PAGE_TITLE | SOLEnterprises" />
+  <meta property="og:description" content="PAGE_DESCRIPTION" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+
+<body>
+
+  <!-- HEADER (menu loads here) -->
+  <div id="site-header"></div>
+
+  <!-- =====================================================
+       DROP ZONE (REAL HTML CONTAINER)
+       Paste ANY valid HTML INSIDE <main> below.
+       Do NOT paste <html>, <head>, or <body>
+       You MAY paste <style> and <script> if needed
+       ===================================================== -->
+  <main class="page" id="page-content">
+    <!-- ===== START CUSTOM PAGE CODE ===== -->
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>K🇦IXU: Killer AI x U</title>
+  <script type="module" src="https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js"></script>
+  <style>
+    .kaixu-container {
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background: #1c1b29;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+    }
+    .kaixu-wrapper { 
+      font-family: sans-serif; 
+      background: #1c1b29; 
+      color: #fff; 
+      margin: 0; 
+      display: flex; 
+      height: 80vh;
+      min-height: 600px;
+    }
+    #sidebar { width: 250px; background: #2c2452; padding: 1rem; overflow-y: auto; }
+    #chat { flex: 1; display: flex; flex-direction: column; }
+    #messages { flex: 1; padding: 1rem; overflow-y: auto; }
+    #inputArea { display: flex; padding: 1rem; background: #2a2740; }
+    #inputArea input { flex: 1; padding: 0.5rem; background: #1c1b29; color: #fff; border: none; }
+    #inputArea button { background: #9c27b0; color: #fff; border: none; padding: 0.5rem 1rem; margin-left: 0.5rem; cursor: pointer; }
+    .message { margin-bottom: 1rem; }
+    .user { color: #8be9fd; }
+    .assistant { color: #50fa7b; }
+    #login { 
+      position: relative;
+      width: 100%; 
+      height: 100%; 
+      background: #1c1b29; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: center; 
+    }
+    #login input { margin: 0.5rem; padding: 0.5rem; background: #2c2452; border: none; color: white; }
+    #login button { padding: 0.5rem 1rem; background: #9c27b0; border: none; color: white; cursor: pointer; }
+    .history-item { padding: 0.5rem; cursor: pointer; border-bottom: 1px solid #444; }
+    .history-item:hover { background: #3c2a60; }
+  </style>
+</head>
+<body>
+
+<div class="kaixu-container">
+  <div class="kaixu-wrapper">
+    <div id="login">
+      <h2>Sign in to K🇦IXU</h2>
+      <input type="email" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Password" />
+      <button onclick="login()">Login</button>
+    </div>
+
+    <div id="sidebar"></div>
+
+    <div id="chat" style="display:none;">
+      <div id="messages"></div>
+      <div id="inputArea">
+        <input type="text" id="userInput" placeholder="Type your message..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+  import { getFirestore, collection, addDoc, getDocs, doc, getDoc, setDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "sk-6a7ff29688484d4f934da0810f0e3337",
+    authDomain: "solenterprises-58215.firebaseapp.com",
+    projectId: "solenterprises-58215",
+    storageBucket: "solenterprises-58215.appspot.com",
+    messagingSenderId: "287667620838",
+    appId: "1:287667620838:web:dd53eaf1712cb0175e2427",
+    measurementId: "G-JLW0GMK1CJ"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  let chatId = localStorage.getItem("chatId");
+
+  window.login = async function () {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      alert("Login failed: " + error.message);
+    }
+  };
+
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("chat").style.display = "flex";
+      loadChatHistory();
+      if (!chatId) {
+        chatId = Date.now().toString();
+        localStorage.setItem("chatId", chatId);
+      }
+      listenToMessages();
+    }
+  });
+
+  async function sendMessage() {
+    const input = document.getElementById("userInput");
+    const content = input.value.trim();
+    if (!content) return;
+
+    const userMessage = { role: "user", content, timestamp: new Date() };
+    await addDoc(collection(db, "users", auth.currentUser.uid, "chats", chatId, "messages"), userMessage);
+
+    addMessageToUI("user", content);
+    input.value = "";
+
+    const res = await fetch("https://us-central1-solenterprises-58215.cloudfunctions.net/deepseek", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "deepseek-chat",
+        systemPrompt: "You are a helpful assistant.",
+        messages: [{ role: "user", content }]
+      })
+    });
+
+    const data = await res.json();
+    const reply = data?.choices?.[0]?.message?.content;
+    if (reply) {
+      await addDoc(collection(db, "users", auth.currentUser.uid, "chats", chatId, "messages"), {
+        role: "assistant",
+        content: reply,
+        timestamp: new Date()
+      });
+      addMessageToUI("assistant", reply);
+    }
+  }
+
+  function addMessageToUI(role, content) {
+    const div = document.createElement("div");
+    div.className = `message ${role}`;
+    div.innerText = content;
+    document.getElementById("messages").appendChild(div);
+    document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
+  }
+
+  function listenToMessages() {
+    const q = query(collection(db, "users", auth.currentUser.uid, "chats", chatId, "messages"), orderBy("timestamp"));
+    onSnapshot(q, (snapshot) => {
+      document.getElementById("messages").innerHTML = "";
+      snapshot.forEach((doc) => {
+        const msg = doc.data();
+        addMessageToUI(msg.role, msg.content);
+      });
+    });
+  }
+
+  async function loadChatHistory() {
+    const q = await getDocs(collection(db, "users", auth.currentUser.uid, "chats"));
+    const sidebar = document.getElementById("sidebar");
+    sidebar.innerHTML = `<h3>Your Chats</h3>`;
+    q.forEach(async (chatDoc) => {
+      const messagesRef = collection(db, "users", auth.currentUser.uid, "chats", chatDoc.id, "messages");
+      const messagesSnap = await getDocs(messagesRef);
+      const firstMsg = messagesSnap.docs.find(d => d.data().role === "user");
+      if (firstMsg) {
+        const div = document.createElement("div");
+        div.className = "history-item";
+        div.innerText = firstMsg.data().content.slice(0, 40);
+        div.onclick = () => {
+          chatId = chatDoc.id;
+          localStorage.setItem("chatId", chatId);
+          listenToMessages();
+        };
+        sidebar.appendChild(div);
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
+
+      
+    <!-- ===== END CUSTOM PAGE CODE ===== -->
+  </main>
+
+  <!-- FOOTER -->
+  <div id="site-footer"></div>
+
+  <!-- DO NOT TOUCH -->
+  <script src="/assets/js/layout.js"></script>
+  <script type="module" src="/assets/js/app.js"></script>
+
+</body>
+</html>
